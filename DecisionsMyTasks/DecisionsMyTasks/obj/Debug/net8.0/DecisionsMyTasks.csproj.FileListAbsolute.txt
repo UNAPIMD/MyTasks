@@ -1,0 +1,15 @@
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\bin\Debug\net8.0\DecisionsMyTasks.exe
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\bin\Debug\net8.0\DecisionsMyTasks.deps.json
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\bin\Debug\net8.0\DecisionsMyTasks.runtimeconfig.json
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\bin\Debug\net8.0\DecisionsMyTasks.dll
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\bin\Debug\net8.0\DecisionsMyTasks.pdb
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.AssemblyInfoInputs.cache
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.AssemblyInfo.cs
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.csproj.CoreCompileInputs.cache
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.sourcelink.json
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.dll
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\refint\DecisionsMyTasks.dll
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.pdb
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\DecisionsMyTasks.genruntimeconfig.cache
+C:\Users\Amethyst\Desktop\MyTasks\DecisionsMyTasks\DecisionsMyTasks\obj\Debug\net8.0\ref\DecisionsMyTasks.dll
