@@ -39,5 +39,28 @@ namespace NUnitTestsDecisions
         {
             return Reverse(num);
         }
+        [TestCase(0, ExpectedResult = true)]
+        [TestCase(12, ExpectedResult = false)]
+        [TestCase(123, ExpectedResult = false)]
+        [TestCase(121, ExpectedResult = true)]
+        [TestCase(323, ExpectedResult = true)]
+        [TestCase(320, ExpectedResult = false)]
+        [TestCase(102, ExpectedResult = false)]
+        [TestCase(101, ExpectedResult = true)]
+        [TestCase(100, ExpectedResult = false)]
+        [TestCase(-2, ExpectedResult = false)]
+        [TestCase(-28, ExpectedResult = false)]
+        [TestCase(-9, ExpectedResult = false)]
+        [TestCase(-95, ExpectedResult = false)]
+        [TestCase(-808, ExpectedResult = false)]
+        [TestCase(-801, ExpectedResult = false)]
+        [TestCase(-900, ExpectedResult = false)]
+        [TestCase(-330, ExpectedResult = false)]
+        [TestCase(int.MaxValue, ExpectedResult = false)]
+        [TestCase(int.MinValue, ExpectedResult = false)]
+        public bool TestIsPalindrome(int num)
+        {
+            return IsPalindrome(num);
+        }
     }
 }
