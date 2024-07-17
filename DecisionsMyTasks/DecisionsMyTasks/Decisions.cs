@@ -5,6 +5,12 @@
     /// </summary>
     public class Decisions
     {
+        public static int RomanToInt(string line)
+        {
+
+            return -1;
+        }
+
         /// <summary>
         /// Возвращает инвертированное исходное число
         /// </summary>

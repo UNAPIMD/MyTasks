@@ -62,5 +62,48 @@ namespace NUnitTestsDecisions
         {
             return IsPalindrome(num);
         }
+
+        [Test]
+        public void TestRomanToInt()
+        {
+            Assert.That(RomanToInt("I"), Is.EqualTo(1));
+            Assert.That(RomanToInt("II"), Is.EqualTo(2));
+            Assert.That(RomanToInt("III"), Is.EqualTo(3));
+            Assert.That(RomanToInt("IV"), Is.EqualTo(4));
+            Assert.That(RomanToInt("V"), Is.EqualTo(5));
+            Assert.That(RomanToInt("VI"), Is.EqualTo(6));
+            Assert.That(RomanToInt("VII"), Is.EqualTo(7));
+            Assert.That(RomanToInt("VIII"), Is.EqualTo(8));
+            Assert.That(RomanToInt("IX"), Is.EqualTo(9));
+            Assert.That(RomanToInt("X"), Is.EqualTo(10));
+            Assert.That(RomanToInt("XI"), Is.EqualTo(11));
+            Assert.That(RomanToInt("XII"), Is.EqualTo(12));
+
+
+            Assert.That(RomanToInt("XXXV"), Is.EqualTo(35));
+            Assert.That(RomanToInt("XLIX"), Is.EqualTo(49));
+            Assert.That(RomanToInt("LVIII"), Is.EqualTo(58));
+            Assert.That(RomanToInt("LXXXI"), Is.EqualTo(81));
+            Assert.That(RomanToInt("XCIX"), Is.EqualTo(99));
+            Assert.That(RomanToInt("CXXIII"), Is.EqualTo(123));
+            Assert.That(RomanToInt("CCC"), Is.EqualTo(300));
+            Assert.That(RomanToInt("DLL"), Is.EqualTo(502)); //DLL
+            Assert.That(RomanToInt("MCD"), Is.EqualTo(1400));
+            Assert.That(RomanToInt("MCDVII"), Is.EqualTo(1407));
+            Assert.That(RomanToInt("MDV"), Is.EqualTo(1505));
+            Assert.That(RomanToInt("MDCCCXII"), Is.EqualTo(1812));
+            Assert.That(RomanToInt("MCMV"), Is.EqualTo(1905));
+            Assert.That(RomanToInt("MCMLXII"), Is.EqualTo(1962));
+            Assert.That(RomanToInt("MCMXCIV"), Is.EqualTo(1994));
+            Assert.That(RomanToInt("MMVII"), Is.EqualTo(2007));
+            Assert.That(RomanToInt("MMXVII"), Is.EqualTo(2017));
+            Assert.That(RomanToInt("MMXVII"), Is.EqualTo(2017));
+            Assert.That(RomanToInt("MMMI"), Is.EqualTo(3001));
+            Assert.That(RomanToInt("MMMLXXXII"), Is.EqualTo(3082));
+            Assert.That(RomanToInt("MMMCDIX"), Is.EqualTo(3409));
+
+            Assert.That(() => RomanToInt(""), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => RomanToInt(null), Throws.TypeOf<ArgumentNullException>());
+        }
     }
 }
