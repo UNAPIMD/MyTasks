@@ -5,10 +5,48 @@
     /// </summary>
     public class Decisions
     {
+        /// <summary>
+        /// Переводит число из римской системы счисления в десятичную
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
         public static int RomanToInt(string line)
         {
+            /*
+             * Для выполнения задачи необходимо в исходной строке выполнить следующие замены:
+             * IV >>> IIII;
+             * IX >>> VIIII;
+             * XL >>> XXXX;
+             * XC >>> LXXXX;
+             * CD >>> CCCC;
+             * CM >>> DCCCC;
+             * 
+             * Эти замены необходимы, чтобы избежать операции вычитания.
+            */
 
-            return -1;
+            if (line == null) throw new ArgumentNullException("line is null");
+            if (line.Length == 0) throw new ArgumentOutOfRangeException("Length of line is 0");
+
+            Dictionary<char, int> Roman = new Dictionary<char, int>()
+            {
+                ['I'] = 1,
+                ['V'] = 5,
+                ['X'] = 10,
+                ['L'] = 50,
+                ['C'] = 100,
+                ['D'] = 500,
+                ['M'] = 1000,
+            };
+
+            line = line.Replace("IV", "IIII").Replace("IX", "VIIII").
+                Replace("XL", "XXXX").Replace("XC", "LXXXX").
+                Replace("CD", "CCCC").Replace("CM", "DCCCC");
+
+            int result = 0;
+
+            foreach(var x in line) result += Roman[x];
+
+            return result;
         }
 
         /// <summary>

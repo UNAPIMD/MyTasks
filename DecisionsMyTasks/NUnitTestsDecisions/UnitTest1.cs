@@ -87,7 +87,7 @@ namespace NUnitTestsDecisions
             Assert.That(RomanToInt("XCIX"), Is.EqualTo(99));
             Assert.That(RomanToInt("CXXIII"), Is.EqualTo(123));
             Assert.That(RomanToInt("CCC"), Is.EqualTo(300));
-            Assert.That(RomanToInt("DLL"), Is.EqualTo(502)); //DLL
+            Assert.That(RomanToInt("DLL"), Is.EqualTo(600)); //DLL
             Assert.That(RomanToInt("MCD"), Is.EqualTo(1400));
             Assert.That(RomanToInt("MCDVII"), Is.EqualTo(1407));
             Assert.That(RomanToInt("MDV"), Is.EqualTo(1505));
