@@ -128,8 +128,8 @@ namespace NUnitTestsDecisions
             arr = new int[] { 2, 7, 11, 15 };
             Assert.That(TwoSum(arr, 9), Is.EqualTo((0, 1)));
             Assert.That(TwoSum(arr, 18), Is.EqualTo((1, 2)));
-            Assert.That(TwoSum(arr, 6), Is.EqualTo((1, 2)));
-            Assert.That(TwoSum(arr, 26), Is.EqualTo((3, 4)));
+            Assert.That(TwoSum(arr, 6), Is.EqualTo((-1, -1)));
+            Assert.That(TwoSum(arr, 26), Is.EqualTo((2, 3)));
 
             Assert.That(TwoSum(arr, -3), Is.EqualTo((-1, -1)));
             Assert.That(TwoSum(arr, 3), Is.EqualTo((-1, -1)));

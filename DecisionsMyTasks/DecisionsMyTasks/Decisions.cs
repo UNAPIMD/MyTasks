@@ -5,8 +5,43 @@
     /// </summary>
     public class Decisions
     {
-        public static (int, int) TwoSum(int[] arr, int target)
+        /// <summary>
+        /// Возвращает индексы двух элементов массива, сумма которых даёт значение target
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static (int, int) TwoSum(int[] nums, int target)
         {
+
+            /*
+             * Рассмотрим несколько способов решить задачу:
+             * (1). Использование двух циклов для перебора всего массива;
+             * (2). Применение "быстрой сортировки" массива и "бинарного поиска";
+             * (3). Использование словаря, в котором хранится пара (элемент массива, его индекс в данном массиве) и метод ContainsKey() имеет асимптотическую сложность O(1)
+             * 
+             * Первый способ имеет асимптотическую сложность O(n ^ 2), что неэффективно.
+             * Второй вариант работает с асимптотической сложность O(n*log n), а третий - O(n)
+             * 
+             * Лучше использовать последний способ.
+            */
+
+            if (nums == null) throw new ArgumentNullException("nums is null");
+            if (nums.Length <= 1) throw new ArgumentOutOfRangeException("Length of nums <= 1");
+
+            Dictionary<int, int> ValueIndex = new Dictionary<int, int>();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (ValueIndex.ContainsKey(target - nums[i]))
+                {
+                    if (i < ValueIndex[target - nums[i]]) return (i, ValueIndex[target - nums[i]]);
+                    return (ValueIndex[target - nums[i]], i);
+                }
+                else ValueIndex[nums[i]] = i;
+            }
 
             return (-1, -1);
         }
@@ -16,6 +51,8 @@
         /// </summary>
         /// <param name="line"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static int RomanToInt(string line)
         {
             /*
