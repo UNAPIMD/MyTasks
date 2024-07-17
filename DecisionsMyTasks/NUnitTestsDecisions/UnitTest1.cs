@@ -105,5 +105,44 @@ namespace NUnitTestsDecisions
             Assert.That(() => RomanToInt(""), Throws.TypeOf<ArgumentOutOfRangeException>());
             Assert.That(() => RomanToInt(null), Throws.TypeOf<ArgumentNullException>());
         }
+
+        [Test]
+        public void TestTwoSum()
+        {
+            int[] arr = new int[]{ 1, 2, 3, 4 };
+            Assert.That(TwoSum(arr, 3), Is.EqualTo((0, 1)));
+            Assert.That(TwoSum(arr, 4), Is.EqualTo((0, 2)));
+            Assert.That(TwoSum(arr, 6), Is.EqualTo((1, 3)));
+            Assert.That(TwoSum(arr, 7), Is.EqualTo((2, 3)));
+
+            Assert.That(TwoSum(arr, 0), Is.EqualTo((-1, -1)));
+            Assert.That(TwoSum(arr, 8), Is.EqualTo((-1, -1)));
+
+            arr = new int[]{ 3, 2, 4};
+            Assert.That(TwoSum(arr, 6), Is.EqualTo((1, 2)));
+            Assert.That(TwoSum(arr, 7), Is.EqualTo((0, 2)));
+
+            Assert.That(TwoSum(arr, -1), Is.EqualTo((-1, -1)));
+            Assert.That(TwoSum(arr, 10), Is.EqualTo((-1, -1)));
+
+            arr = new int[] { 2, 7, 11, 15 };
+            Assert.That(TwoSum(arr, 9), Is.EqualTo((0, 1)));
+            Assert.That(TwoSum(arr, 18), Is.EqualTo((1, 2)));
+            Assert.That(TwoSum(arr, 6), Is.EqualTo((1, 2)));
+            Assert.That(TwoSum(arr, 26), Is.EqualTo((3, 4)));
+
+            Assert.That(TwoSum(arr, -3), Is.EqualTo((-1, -1)));
+            Assert.That(TwoSum(arr, 3), Is.EqualTo((-1, -1)));
+
+            arr = new int[] { 1 };
+            Assert.That(() => TwoSum(arr, 1), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            arr = new int[] { };
+            Assert.That(() => TwoSum(arr, 0), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            arr = null;
+            Assert.That(() => TwoSum(arr, 4), Throws.TypeOf<ArgumentNullException>());
+
+        }
     }
 }

@@ -5,6 +5,12 @@
     /// </summary>
     public class Decisions
     {
+        public static (int, int) TwoSum(int[] arr, int target)
+        {
+
+            return (-1, -1);
+        }
+
         /// <summary>
         /// Переводит число из римской системы счисления в десятичную
         /// </summary>
