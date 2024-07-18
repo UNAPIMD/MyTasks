@@ -5,7 +5,7 @@ namespace NUnitTestsDecisions
     /// <summary>
     /// Класс тестов решений задач
     /// </summary>
-    public class Tests
+    public class TestsMyTasks
     {
         [SetUp]
         public void Setup()
@@ -235,7 +235,6 @@ namespace NUnitTestsDecisions
             Assert.AreEqual(MyPow(2.72, -3), 0.049692779360, eps);
             Assert.AreEqual(MyPow(2.72, -4), 0.018269404176, eps);
         }
-
         /// <summary>
         /// Тестирование Fibonachi()
         /// </summary>
@@ -271,5 +270,76 @@ namespace NUnitTestsDecisions
             Assert.That(() => Fibonachi(-5), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
 
+        /// <summary>
+        /// Тестирование GroupAnagram()
+        /// </summary>
+        [Test]
+        public void TestGroupAnagram()
+        {
+            Assert.That(() => GroupAnagrams(null), Throws.TypeOf<ArgumentNullException>());
+
+            string[] arr = new string[]{""};
+            List<List<string>> expected = new List<List<string>>() { new List<string>(){""} };
+            List<List<string>> result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for(int  i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[]{ " " };
+            expected = new List<List<string>>() { new List<string>() { " " } };
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[] { "a" };
+            expected = new List<List<string>>() { new List<string>() { "a" } };
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[] { "ab" };
+            expected = new List<List<string>>() { new List<string>() { "ab" } };
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[] { "ab", "cd" };
+            expected = new List<List<string>>() { new List<string>() { "ab" }, new List<string>() { "cd" } };
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
+            expected = new List<List<string>>() { new List<string>() { "ate", "eat", "tea" }, new List<string>() { "nat", "tan" }, new List<string>() { "bat" }};
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[] { "cat", "bat", "atb"};
+            expected = new List<List<string>>() { new List<string>() { "cat" }, new List<string>() { "bat", "atb" } };
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[] { "stars", "rats", "arts", "start" };
+            expected = new List<List<string>>() { new List<string>() { "stars" }, new List<string>() {"rats", "arts"  }, new List<string>() { "start" } };
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+
+            arr = new string[] { "rats", "arts" };
+            expected = new List<List<string>>() { new List<string>() { "rats", "arts" }};
+            result = GroupAnagrams(arr);
+
+            Assert.That(expected.Count == result.Count);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+        }
     }
 }

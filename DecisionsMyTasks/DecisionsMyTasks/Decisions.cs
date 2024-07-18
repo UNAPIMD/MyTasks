@@ -6,6 +6,16 @@
     public class Decisions
     {
         /// <summary>
+        /// Группирует все возможные анаграммы массива
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static List<List<string>> GroupAnagrams(string[] arr)
+        {
+
+            return null;
+        }
+        /// <summary>
         /// Возвращает N-ое число последовательности Фибоначчи
         /// </summary>
         /// <param name="N"></param>
@@ -25,7 +35,7 @@
             */
 
             if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
-            
+
             //Вспомогательный метод
             int FibonachiHelp(int N, int curr = 1, int prev = 1)
             {
@@ -55,12 +65,12 @@
 
             if (x == 0) return 0;
             if (x == 1 || n == 0) return 1;
-            if (n < 0) return 1/(x * MyPow(x, -n-1)); //Запись 1/MyPow(x,n) не подходит при n = -2^31, так как будет переполнение программного стека из-за значения -n, превышающего Int32.MaxValue
-            if (n % 2 != 0) return x*MyPow(x, n-1);
+            if (n < 0) return 1 / (x * MyPow(x, -n - 1)); //Запись 1/MyPow(x,n) не подходит при n = -2^31, так как будет переполнение программного стека из-за значения -n, превышающего Int32.MaxValue
+            if (n % 2 != 0) return x * MyPow(x, n - 1);
 
             double step = MyPow(x, n / 2);
 
-            return step*step;
+            return step * step;
         }
 
         /// <summary>
@@ -145,7 +155,7 @@
 
             int result = 0;
 
-            foreach(var x in line) result += Roman[x];
+            foreach (var x in line) result += Roman[x];
 
             return result;
         }
@@ -159,7 +169,7 @@
         {
             int rev = 0;
 
-            while(num != 0)
+            while (num != 0)
             {
                 //Переменная rev проверяется непосредственно перед целочисленным переполнением, так как после всякие арифметические операции и сравнения бессмысленные
                 if (rev > Int32.MaxValue / 10 || rev < Int32.MinValue / 10) return 0;
