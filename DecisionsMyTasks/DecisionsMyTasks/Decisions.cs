@@ -6,6 +6,18 @@
     public class Decisions
     {
         /// <summary>
+        /// Возводит вещественное число в целочисленную степень
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static double MyPow(double x, double n)
+        {
+
+            return -1;
+        }
+
+        /// <summary>
         /// Возвращает индексы двух элементов массива, сумма которых даёт значение target
         /// </summary>
         /// <param name="nums"></param>

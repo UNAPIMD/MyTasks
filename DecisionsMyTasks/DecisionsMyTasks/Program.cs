@@ -9,8 +9,7 @@ namespace DecisionsMyTasks
         /// </summary>
         public static void Main()
         {
-            var res = TwoSum(new int[] { 3, 2, 4 }, 6);
-            Console.Write($"{res.Item1} || {res.Item2}");
+            Console.WriteLine("Hello, World!");
         }
     }
 }

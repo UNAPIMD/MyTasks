@@ -11,7 +11,11 @@ namespace NUnitTestsDecisions
         public void Setup()
         {
         }
-
+        /// <summary>
+        /// Тестирование Reverse()
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
         [TestCase(0, ExpectedResult = 0)]
         [TestCase(1, ExpectedResult = 1)]
         [TestCase(12, ExpectedResult = 21)]
@@ -63,6 +67,9 @@ namespace NUnitTestsDecisions
             return IsPalindrome(num);
         }
 
+        /// <summary>
+        /// Тестирование RomanToInt()
+        /// </summary>
         [Test]
         public void TestRomanToInt()
         {
@@ -78,7 +85,6 @@ namespace NUnitTestsDecisions
             Assert.That(RomanToInt("X"), Is.EqualTo(10));
             Assert.That(RomanToInt("XI"), Is.EqualTo(11));
             Assert.That(RomanToInt("XII"), Is.EqualTo(12));
-
 
             Assert.That(RomanToInt("XXXV"), Is.EqualTo(35));
             Assert.That(RomanToInt("XLIX"), Is.EqualTo(49));
@@ -106,10 +112,13 @@ namespace NUnitTestsDecisions
             Assert.That(() => RomanToInt(null), Throws.TypeOf<ArgumentNullException>());
         }
 
+        /// <summary>
+        /// Тестирование TwoSum()
+        /// </summary>
         [Test]
         public void TestTwoSum()
         {
-            int[] arr = new int[]{ 1, 2, 3, 4 };
+            int[] arr = new int[] { 1, 2, 3, 4 };
             Assert.That(TwoSum(arr, 3), Is.EqualTo((0, 1)));
             Assert.That(TwoSum(arr, 4), Is.EqualTo((0, 2)));
             Assert.That(TwoSum(arr, 6), Is.EqualTo((1, 3)));
@@ -118,7 +127,7 @@ namespace NUnitTestsDecisions
             Assert.That(TwoSum(arr, 0), Is.EqualTo((-1, -1)));
             Assert.That(TwoSum(arr, 8), Is.EqualTo((-1, -1)));
 
-            arr = new int[]{ 3, 2, 4};
+            arr = new int[] { 3, 2, 4 };
             Assert.That(TwoSum(arr, 6), Is.EqualTo((1, 2)));
             Assert.That(TwoSum(arr, 7), Is.EqualTo((0, 2)));
 
@@ -143,6 +152,88 @@ namespace NUnitTestsDecisions
             arr = null;
             Assert.That(() => TwoSum(arr, 4), Throws.TypeOf<ArgumentNullException>());
 
+        }
+        /// <summary>
+        /// Тестирование MyPow()
+        /// </summary>
+        [Test]
+        public void TestMyPow()
+        {
+            double eps = 1e-8; //Погрешность
+
+            Assert.AreEqual(MyPow(2, 0), 1, eps);
+            Assert.AreEqual(MyPow(2, 1), 2, eps);
+            Assert.AreEqual(MyPow(2, 2), 4, eps);
+            Assert.AreEqual(MyPow(2, 3), 8, eps);
+            Assert.AreEqual(MyPow(2, 4), 16, eps);
+            Assert.AreEqual(MyPow(2, 5), 32, eps);
+            Assert.AreEqual(MyPow(2, 6), 64, eps);
+            Assert.AreEqual(MyPow(2, 7), 128, eps);
+            Assert.AreEqual(MyPow(2, 8), 256, eps);
+            Assert.AreEqual(MyPow(2, 9), 512, eps);
+            Assert.AreEqual(MyPow(2, 10), 1024, eps);
+
+            Assert.AreEqual(MyPow(4, 3), 64, eps);
+            Assert.AreEqual(MyPow(4, 4), 256, eps);
+
+            Assert.AreEqual(MyPow(3, -1), 0.33333333, eps);
+            Assert.AreEqual(MyPow(4, -1), 0.25, eps);
+            Assert.AreEqual(MyPow(2, -1), 0.5, eps);
+            Assert.AreEqual(MyPow(5, -1), 0.2, eps);
+            Assert.AreEqual(MyPow(6, -1), 0.16666666, eps);
+            Assert.AreEqual(MyPow(7, -1), 0.142857142857, eps);
+            Assert.AreEqual(MyPow(8, -1), 0.125, eps);
+            Assert.AreEqual(MyPow(9, -1), 0.11111111, eps);
+            Assert.AreEqual(MyPow(10, -1), 0.1, eps);
+
+            Assert.AreEqual(MyPow(0, 1), 0, eps);
+            Assert.AreEqual(MyPow(0, 2), 0, eps);
+            Assert.AreEqual(MyPow(0, 3), 0, eps);
+            Assert.AreEqual(MyPow(0, 4), 0, eps);
+            Assert.AreEqual(MyPow(0, 5), 0, eps);
+
+            Assert.AreEqual(MyPow(1, 0), 1, eps);
+            Assert.AreEqual(MyPow(1, 1), 1, eps);
+            Assert.AreEqual(MyPow(1, 2), 1, eps);
+            Assert.AreEqual(MyPow(1, 3), 1, eps);
+            Assert.AreEqual(MyPow(1, 4), 1, eps);
+            Assert.AreEqual(MyPow(1, 5), 1, eps);
+
+            Assert.AreEqual(MyPow(10, 1), 10, eps);
+            Assert.AreEqual(MyPow(10, 2), 100, eps);
+            Assert.AreEqual(MyPow(10, 3), 1000, eps);
+            Assert.AreEqual(MyPow(10, 4), 10000, eps);
+            Assert.AreEqual(MyPow(10, 5), 100000, eps);
+
+            Assert.AreEqual(MyPow(0.1, 1), 0.1, eps);
+            Assert.AreEqual(MyPow(0.1, 2), 0.01, eps);
+            Assert.AreEqual(MyPow(0.1, 3), 0.001, eps);
+            Assert.AreEqual(MyPow(0.1, 4), 0.0001, eps);
+
+            Assert.AreEqual(MyPow(0.5, 1), 0.5, eps);
+            Assert.AreEqual(MyPow(0.5, 2), 0.25, eps);
+            Assert.AreEqual(MyPow(0.5, 3), 0.125, eps);
+            Assert.AreEqual(MyPow(0.5, 4), 0.0625, eps);
+
+            Assert.AreEqual(MyPow(3.14, 1), 3.14, eps);
+            Assert.AreEqual(MyPow(3.14, 2), 9.8596, eps);
+            Assert.AreEqual(MyPow(3.14, 3), 30.959144, eps);
+            Assert.AreEqual(MyPow(3.14, 4), 97.21171216, eps);
+
+            Assert.AreEqual(MyPow(3.14, -1), 0.318471337579, eps);
+            Assert.AreEqual(MyPow(3.14, -2), 0.101423992859, eps);
+            Assert.AreEqual(MyPow(3.14, -3), 0.032300634668, eps);
+            Assert.AreEqual(MyPow(3.14, -4), 0.010286826327, eps);
+
+            Assert.AreEqual(MyPow(2.72, 1), 2.72, eps);
+            Assert.AreEqual(MyPow(2.72, 2), 7.3984, eps);
+            Assert.AreEqual(MyPow(2.72, 3), 20.123648, eps);
+            Assert.AreEqual(MyPow(2.72, 4), 54.73632256, eps);
+
+            Assert.AreEqual(MyPow(2.72, -1), 0.367647058823, eps);
+            Assert.AreEqual(MyPow(2.72, -2), 0.135164359861, eps);
+            Assert.AreEqual(MyPow(2.72, -3), 0.049692779360, eps);
+            Assert.AreEqual(MyPow(2.72, -4), 0.018269404176, eps);
         }
     }
 }
