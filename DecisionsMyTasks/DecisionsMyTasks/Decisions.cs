@@ -5,11 +5,36 @@
     /// </summary>
     public class Decisions
     {
-
-        public static int Fibonachi(int n)
+        /// <summary>
+        /// Возвращает N-ое число последовательности Фибоначчи
+        /// </summary>
+        /// <param name="N"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static int Fibonachi(int N)
         {
+            /*
+             * Существует два способа решения этой задачи:
+             * (1). Использовать формулу: F(n) = F(n-1) + F(n-2);
+             * (2). Применить цикл;
+             * (3). Использовать рекурсию с одним рекурсивным вызовом.
+             * 
+             * Первое способ крайне неэффективен из-за быстрого переполнения программного стека и лишних повторных рекурсивных вызовов
+             * 
+             * И второе, и третье решение хороши - воспользуемся последним.
+            */
 
-            return -1;
+            if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
+            
+            //Вспомогательный метод
+            int FibonachiHelp(int N, int curr = 1, int prev = 1)
+            {
+                if (N == 1) return prev;
+                return FibonachiHelp(N - 1, curr + prev, curr);
+
+            }
+
+            return FibonachiHelp(N);
         }
         /// <summary>
         /// Возводит вещественное число в целочисленную степень
