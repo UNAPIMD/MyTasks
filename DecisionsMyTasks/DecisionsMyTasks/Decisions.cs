@@ -5,6 +5,12 @@
     /// </summary>
     public class Decisions
     {
+
+        public static int Fibonachi(int n)
+        {
+
+            return -1;
+        }
         /// <summary>
         /// Возводит вещественное число в целочисленную степень
         /// </summary>

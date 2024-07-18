@@ -1,4 +1,5 @@
 ﻿using static DecisionsMyTasks.Decisions;
+using System.Text.RegularExpressions;
 
 namespace DecisionsMyTasks
 {
@@ -9,7 +10,6 @@ namespace DecisionsMyTasks
         /// </summary>
         public static void Main()
         {
-            Console.WriteLine("Hello, World!");
         }
     }
 }

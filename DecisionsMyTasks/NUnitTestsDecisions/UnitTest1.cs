@@ -235,5 +235,41 @@ namespace NUnitTestsDecisions
             Assert.AreEqual(MyPow(2.72, -3), 0.049692779360, eps);
             Assert.AreEqual(MyPow(2.72, -4), 0.018269404176, eps);
         }
+
+        /// <summary>
+        /// Тестирование Fibonachi()
+        /// </summary>
+        [Test]
+        public void TestFibonachi()
+        {
+            Assert.That(Fibonachi(1), Is.EqualTo(1));
+            Assert.That(Fibonachi(2), Is.EqualTo(1));
+            Assert.That(Fibonachi(3), Is.EqualTo(2));
+            Assert.That(Fibonachi(4), Is.EqualTo(3));
+            Assert.That(Fibonachi(5), Is.EqualTo(5));
+            Assert.That(Fibonachi(6), Is.EqualTo(8));
+            Assert.That(Fibonachi(7), Is.EqualTo(13));
+            Assert.That(Fibonachi(8), Is.EqualTo(21));
+            Assert.That(Fibonachi(9), Is.EqualTo(34));
+            Assert.That(Fibonachi(10), Is.EqualTo(55));
+            Assert.That(Fibonachi(11), Is.EqualTo(89));
+            Assert.That(Fibonachi(12), Is.EqualTo(144));
+            Assert.That(Fibonachi(13), Is.EqualTo(233));
+            Assert.That(Fibonachi(14), Is.EqualTo(377));
+            Assert.That(Fibonachi(15), Is.EqualTo(610));
+            Assert.That(Fibonachi(16), Is.EqualTo(987));
+            Assert.That(Fibonachi(17), Is.EqualTo(1597));
+            Assert.That(Fibonachi(18), Is.EqualTo(2584));
+            Assert.That(Fibonachi(19), Is.EqualTo(4181));
+            Assert.That(Fibonachi(20), Is.EqualTo(6765));
+
+            Assert.That(() => Fibonachi(0), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => Fibonachi(-1), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => Fibonachi(-2), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => Fibonachi(-3), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => Fibonachi(-4), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => Fibonachi(-5), Throws.TypeOf<ArgumentOutOfRangeException>());
+        }
+
     }
 }
