@@ -13,7 +13,25 @@
         public static List<List<string>> GroupAnagrams(string[] arr)
         {
 
-            return null;
+            /* 
+             * Для решения воспользуемся словарём, в котором ключом выступает шаблон (слово в отсортированном порядке), а ключом - слова, удовлетворяющие данному паттерну.
+             * Отметим, что метод ContainsKey() имеет асимптотическую сложность O(1)
+            */
+
+            if (arr == null) throw new ArgumentNullException("arr is null");
+            if (arr.Length == 0) throw new ArgumentOutOfRangeException("Length of arr is 0");
+
+            Dictionary<string, List<string>> kv = new Dictionary<string, List<string>>();
+
+            foreach (var x in arr)
+            {
+                string line = string.Concat(x.OrderBy(c => c)); //Сортировка слова
+
+                if (!kv.ContainsKey(line)) kv[line] = new List<string>();
+                kv[line].Add(x);
+            }
+
+            return kv.Values.ToList();
         }
         /// <summary>
         /// Возвращает N-ое число последовательности Фибоначчи

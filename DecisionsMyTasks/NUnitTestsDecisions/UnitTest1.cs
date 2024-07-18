@@ -274,7 +274,7 @@ namespace NUnitTestsDecisions
         /// Тестирование GroupAnagram()
         /// </summary>
         [Test]
-        public void TestGroupAnagram()
+        public void TestGroupAnagrams()
         {
             Assert.That(() => GroupAnagrams(null), Throws.TypeOf<ArgumentNullException>());
 
