@@ -13,7 +13,37 @@
         /// <returns></returns>
         public static int JosephusOne(int N, int K)
         {
-            return -1;
+            /*
+             * Решение основано на переборе и цикличном проходе по массиву длины N, 
+             * где каждый элемент является живым (false) или мёртвым (true) человеком
+             * Будем проходить по массиву до тех пор, пока количество живых людей не станет равным единице!
+            */
+
+
+            if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
+            if (K <= 0) throw new ArgumentOutOfRangeException("K <= 0");
+
+            if (N == 1) return 1;
+            if (K == 1) return N;
+
+            bool[] people = new bool[N];
+            int index = 0; //Индекс человека, с которого будет начинаться каждый проход по массиву
+
+            while (N != 0)
+            {
+                int count = K - 1; //Число людей, которых необходимо оставить в живых на текущем проходе
+
+                while (count > 0 || people[index])
+                {
+                    if (!people[index]) count--;
+                    index = (index + 1) % people.Length; //Цикличный проход по массиву
+                }
+
+                people[index] = true; //Убиваем человека, на котором остановились в результате данного прохода по массиву
+                N--;
+            }
+
+            return index+1;
         }
 
         /// <summary>
