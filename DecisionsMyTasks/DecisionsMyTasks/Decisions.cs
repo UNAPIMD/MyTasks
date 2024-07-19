@@ -6,6 +6,31 @@
     public class Decisions
     {
         /// <summary>
+        /// Проверяет, является ли число нечётным
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public static bool IsOdd(int num) => num % 2 != 0;
+        /// <summary>
+        /// Проверяет, является ли число чётным
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsEven(int num) => num % 2 == 0;
+
+        /// <summary>
+        /// Обменивает значения двух переменных
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        public static void Swap<T>(ref T a, ref T b)
+        {
+            var step = a;
+            a = b;
+            b = step;
+        }
+        /// <summary>
         /// Группирует все возможные анаграммы массива
         /// </summary>
         /// <param name="arr"></param>
