@@ -6,6 +6,43 @@
     public class Decisions
     {
         /// <summary>
+        /// Выводит в консоль матрицу
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Matrix"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void Print<T>(T[,] Matrix)
+        {
+            if (Matrix == null) throw new ArgumentNullException("Matrix is null");
+            if (Matrix.Length == 0) throw new ArgumentOutOfRangeException("Size of Matrix is 0");
+
+            for(int i = 0; i < Matrix.GetLength(0); i++)
+            {
+                for(int j = 0; j  < Matrix.GetLength(1); j++) Console.Write($"{Matrix[i, j]} ");
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// Выводит в консоль зубчатый массив
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="JaggedArray"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void Print<T>(T[][] JaggedArray)
+        {
+            if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
+            if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("Length of JaggedArray is 0");
+
+            foreach(var x in JaggedArray)
+            {
+                foreach (var y in x) Console.Write($"{y} ");
+                Console.WriteLine();
+            }
+        }
+        /// <summary>
         /// Задача Иосифа Флавия 
         /// </summary>
         /// <param name="N"></param>
@@ -18,7 +55,6 @@
              * где каждый элемент является живым (false) или мёртвым (true) человеком
              * Будем проходить по массиву до тех пор, пока количество живых людей не станет равным единице!
             */
-
 
             if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
             if (K <= 0) throw new ArgumentOutOfRangeException("K <= 0");
@@ -36,6 +72,7 @@
                 while (count > 0 || people[index])
                 {
                     if (!people[index]) count--;
+
                     index = (index + 1) % people.Length; //Цикличный проход по массиву
                 }
 
@@ -43,7 +80,7 @@
                 N--;
             }
 
-            return index+1;
+            return index + 1;
         }
 
         /// <summary>
