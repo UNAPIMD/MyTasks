@@ -6,6 +6,17 @@
     public class Decisions
     {
         /// <summary>
+        /// Задача Иосифа Флавия 
+        /// </summary>
+        /// <param name="N"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
+        public static int JosephusOne(int N, int K)
+        {
+            return -1;
+        }
+
+        /// <summary>
         /// Проверяет, является ли число нечётным
         /// </summary>
         /// <param name="num"></param>

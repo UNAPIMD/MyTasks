@@ -10,6 +10,7 @@ namespace DecisionsMyTasks
         /// </summary>
         public static void Main()
         {
+            Console.WriteLine(JosephusOne(4, 10));
         }
     }
 }

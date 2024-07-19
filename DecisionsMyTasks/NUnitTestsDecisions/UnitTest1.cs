@@ -474,5 +474,98 @@ namespace NUnitTestsDecisions
         [TestCase(-111, ExpectedResult = true)]
         public bool TestIsOdd(int num) => IsOdd(num);
 
+        /// <summary>
+        /// Тестирование JosephusOne()
+        /// </summary>
+        [Test]
+        public void TestJosephusOne()
+        {
+            for (int i = 1; i <= 10; i++) Assert.That(JosephusOne(1, i), Is.EqualTo(1));
+
+            for (int i = 1; i <= 10; i++) Assert.That(JosephusOne(i, 1), Is.EqualTo(i));
+
+            for (int i = 2; i <= 10; i++) Assert.That(JosephusOne(2, i), Is.EqualTo(i % 2 + 1));
+
+            Assert.That(JosephusOne(3, 2), Is.EqualTo(3));
+            Assert.That(JosephusOne(3, 3), Is.EqualTo(2));
+            Assert.That(JosephusOne(3, 4), Is.EqualTo(2));
+            Assert.That(JosephusOne(3, 5), Is.EqualTo(1));
+            Assert.That(JosephusOne(3, 6), Is.EqualTo(1));
+            Assert.That(JosephusOne(3, 7), Is.EqualTo(3));
+            Assert.That(JosephusOne(3, 8), Is.EqualTo(3));
+            Assert.That(JosephusOne(3, 9), Is.EqualTo(2));
+            Assert.That(JosephusOne(3, 10), Is.EqualTo(2));
+
+            Assert.That(JosephusOne(4, 2), Is.EqualTo(1));
+            Assert.That(JosephusOne(4, 3), Is.EqualTo(1));
+            Assert.That(JosephusOne(4, 4), Is.EqualTo(2));
+            Assert.That(JosephusOne(4, 5), Is.EqualTo(2));
+            Assert.That(JosephusOne(4, 6), Is.EqualTo(3));
+            Assert.That(JosephusOne(4, 7), Is.EqualTo(2));
+            Assert.That(JosephusOne(4, 8), Is.EqualTo(3));
+            Assert.That(JosephusOne(4, 9), Is.EqualTo(3));
+            Assert.That(JosephusOne(4, 10), Is.EqualTo(4));
+
+            Assert.That(JosephusOne(5, 2), Is.EqualTo(3));
+            Assert.That(JosephusOne(5, 3), Is.EqualTo(4));
+            Assert.That(JosephusOne(5, 4), Is.EqualTo(1));
+            Assert.That(JosephusOne(5, 5), Is.EqualTo(2));
+            Assert.That(JosephusOne(5, 6), Is.EqualTo(4));
+            Assert.That(JosephusOne(5, 7), Is.EqualTo(4));
+            Assert.That(JosephusOne(5, 8), Is.EqualTo(1));
+            Assert.That(JosephusOne(5, 9), Is.EqualTo(2));
+            Assert.That(JosephusOne(5, 10), Is.EqualTo(4));
+
+            Assert.That(JosephusOne(6, 2), Is.EqualTo(5));
+            Assert.That(JosephusOne(6, 3), Is.EqualTo(1));
+            Assert.That(JosephusOne(6, 4), Is.EqualTo(5));
+            Assert.That(JosephusOne(6, 5), Is.EqualTo(1));
+            Assert.That(JosephusOne(6, 6), Is.EqualTo(4));
+            Assert.That(JosephusOne(6, 7), Is.EqualTo(5));
+            Assert.That(JosephusOne(6, 8), Is.EqualTo(3));
+            Assert.That(JosephusOne(6, 9), Is.EqualTo(5));
+            Assert.That(JosephusOne(6, 10), Is.EqualTo(2));
+
+            Assert.That(JosephusOne(7, 2), Is.EqualTo(7));
+            Assert.That(JosephusOne(7, 3), Is.EqualTo(4));
+            Assert.That(JosephusOne(7, 4), Is.EqualTo(2));
+            Assert.That(JosephusOne(7, 5), Is.EqualTo(6));
+            Assert.That(JosephusOne(7, 6), Is.EqualTo(3));
+            Assert.That(JosephusOne(7, 7), Is.EqualTo(5));
+            Assert.That(JosephusOne(7, 8), Is.EqualTo(4));
+            Assert.That(JosephusOne(7, 9), Is.EqualTo(7));
+            Assert.That(JosephusOne(7, 10), Is.EqualTo(5));
+
+            Assert.That(JosephusOne(8, 2), Is.EqualTo(1));
+            Assert.That(JosephusOne(8, 3), Is.EqualTo(7));
+            Assert.That(JosephusOne(8, 4), Is.EqualTo(6));
+            Assert.That(JosephusOne(8, 5), Is.EqualTo(3));
+            Assert.That(JosephusOne(8, 6), Is.EqualTo(1));
+            Assert.That(JosephusOne(8, 7), Is.EqualTo(4));
+            Assert.That(JosephusOne(8, 8), Is.EqualTo(4));
+            Assert.That(JosephusOne(8, 9), Is.EqualTo(8));
+            Assert.That(JosephusOne(8, 10), Is.EqualTo(7));
+
+            Assert.That(JosephusOne(9, 2), Is.EqualTo(3));
+            Assert.That(JosephusOne(9, 3), Is.EqualTo(1));
+            Assert.That(JosephusOne(9, 4), Is.EqualTo(1));
+            Assert.That(JosephusOne(9, 5), Is.EqualTo(8));
+            Assert.That(JosephusOne(9, 6), Is.EqualTo(7));
+            Assert.That(JosephusOne(9, 7), Is.EqualTo(2));
+            Assert.That(JosephusOne(9, 8), Is.EqualTo(3));
+            Assert.That(JosephusOne(9, 9), Is.EqualTo(8));
+            Assert.That(JosephusOne(9, 10), Is.EqualTo(8));
+
+            Assert.That(JosephusOne(10, 2), Is.EqualTo(5));
+            Assert.That(JosephusOne(10, 3), Is.EqualTo(4));
+            Assert.That(JosephusOne(10, 4), Is.EqualTo(5));
+            Assert.That(JosephusOne(10, 5), Is.EqualTo(3));
+            Assert.That(JosephusOne(10, 6), Is.EqualTo(3));
+            Assert.That(JosephusOne(10, 7), Is.EqualTo(9));
+            Assert.That(JosephusOne(10, 8), Is.EqualTo(1));
+            Assert.That(JosephusOne(10, 9), Is.EqualTo(7));
+            Assert.That(JosephusOne(10, 10), Is.EqualTo(8));
+        }
+
     }
 }
