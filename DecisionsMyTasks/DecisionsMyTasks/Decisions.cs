@@ -79,6 +79,21 @@
                 Console.WriteLine();
             }
         }
+        /// <summary>
+        /// Выводит в консоль массив
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Array"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void Print<T>(T[] Array)
+        {
+            if (Array == null) throw new ArgumentNullException("Array is null");
+            if (Array.Length == 0) throw new ArgumentOutOfRangeException("Length of Array is empty");
+
+            foreach (var x in Array) Console.Write($"{x} ");
+            Console.WriteLine();
+        }
 
         /// <summary>
         /// Выводит в консоль зубчатый массив
@@ -92,11 +107,7 @@
             if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
             if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("Length of JaggedArray is empty");
 
-            foreach (var x in JaggedArray)
-            {
-                foreach (var y in x) Console.Write($"{y} ");
-                Console.WriteLine();
-            }
+            foreach (var x in JaggedArray) Print(x);
         }
         /// <summary>
         /// Задача Иосифа Флавия 
