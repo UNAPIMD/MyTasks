@@ -13,6 +13,14 @@ namespace DecisionsMyTasks
         /// <param name="Matrix"></param>
         public static void Transpose<T>(T[,] Matrix)
         {
+            if (Matrix == null) throw new ArgumentNullException("Matrix is null");
+            if (Matrix.Length == 0) throw new ArgumentOutOfRangeException("Matrix is empty");
+            if (Matrix.GetLength(0) != Matrix.GetLength(1)) throw new ArgumentOutOfRangeException("Matrix isn't square");
+
+            
+            for(int i = 0;  i < Matrix.GetLength(0); i++)
+                for(int j =0; j < i; j++) //Матрица транспонируется относительно главной диагонали, поэтому j < i
+                    Swap(ref Matrix[i,j], ref Matrix[j,i]);
         }
 
         /// <summary>
