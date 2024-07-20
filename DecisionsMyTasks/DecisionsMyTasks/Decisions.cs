@@ -15,7 +15,17 @@ namespace DecisionsMyTasks
         /// <returns></returns>
         public static T[,] TransposeMatrix<T>(T[,] Matrix)
         {
-            return null;
+            if (Matrix == null) throw new ArgumentNullException("Matrix is null");
+            if (Matrix.Length == 0) throw new ArgumentOutOfRangeException("Matrix is empty");
+
+            (int N, int M) = (Matrix.GetLength(0), Matrix.GetLength(1));
+            T[,] NewMatrix = new T[M, N];
+
+            for (int i = 0; i < M; i++)
+                for(int j = 0; j < N; j++)
+                    NewMatrix[i, j] = Matrix[j, i];
+
+            return NewMatrix;
         }
 
         /// <summary>
