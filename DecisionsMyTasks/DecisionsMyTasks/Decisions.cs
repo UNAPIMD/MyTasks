@@ -1,10 +1,20 @@
-﻿namespace DecisionsMyTasks
+﻿using System.Security.Cryptography;
+
+namespace DecisionsMyTasks
 {
     /// <summary>
     /// Класс решений задач
     /// </summary>
     public class Decisions
     {
+        /// <summary>
+        /// Транспонирование квадратной матрицы
+        /// </summary>
+        /// <param name="Matrix"></param>
+        public static void Transpose<T>(T[,] Matrix)
+        {
+        }
+
         /// <summary>
         /// Выводит в консоль матрицу
         /// </summary>

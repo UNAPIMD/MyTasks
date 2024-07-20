@@ -278,14 +278,14 @@ namespace NUnitTestsDecisions
         {
             Assert.That(() => GroupAnagrams(null), Throws.TypeOf<ArgumentNullException>());
 
-            string[] arr = new string[]{""};
-            List<List<string>> expected = new List<List<string>>() { new List<string>(){""} };
+            string[] arr = new string[] { "" };
+            List<List<string>> expected = new List<List<string>>() { new List<string>() { "" } };
             List<List<string>> result = GroupAnagrams(arr);
 
             Assert.That(expected.Count == result.Count);
-            for(int  i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
+            for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
 
-            arr = new string[]{ " " };
+            arr = new string[] { " " };
             expected = new List<List<string>>() { new List<string>() { " " } };
             result = GroupAnagrams(arr);
 
@@ -314,13 +314,13 @@ namespace NUnitTestsDecisions
             for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
 
             arr = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
-            expected = new List<List<string>>() { new List<string>() { "ate", "eat", "tea" }, new List<string>() { "nat", "tan" }, new List<string>() { "bat" }};
+            expected = new List<List<string>>() { new List<string>() { "ate", "eat", "tea" }, new List<string>() { "nat", "tan" }, new List<string>() { "bat" } };
             result = GroupAnagrams(arr);
 
             Assert.That(expected.Count == result.Count);
             for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
 
-            arr = new string[] { "cat", "bat", "atb"};
+            arr = new string[] { "cat", "bat", "atb" };
             expected = new List<List<string>>() { new List<string>() { "cat" }, new List<string>() { "bat", "atb" } };
             result = GroupAnagrams(arr);
 
@@ -328,14 +328,14 @@ namespace NUnitTestsDecisions
             for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
 
             arr = new string[] { "stars", "rats", "arts", "start" };
-            expected = new List<List<string>>() { new List<string>() { "stars" }, new List<string>() {"rats", "arts"  }, new List<string>() { "start" } };
+            expected = new List<List<string>>() { new List<string>() { "stars" }, new List<string>() { "rats", "arts" }, new List<string>() { "start" } };
             result = GroupAnagrams(arr);
 
             Assert.That(expected.Count == result.Count);
             for (int i = 0; i < expected.Count; i++) CollectionAssert.AreEquivalent(expected[i], result[i]);
 
             arr = new string[] { "rats", "arts" };
-            expected = new List<List<string>>() { new List<string>() { "rats", "arts" }};
+            expected = new List<List<string>>() { new List<string>() { "rats", "arts" } };
             result = GroupAnagrams(arr);
 
             Assert.That(expected.Count == result.Count);
@@ -567,5 +567,87 @@ namespace NUnitTestsDecisions
             Assert.That(JosephusOne(10, 10), Is.EqualTo(8));
         }
 
+        /// <summary>
+        /// Тестирование Transpose()
+        /// </summary>
+        [Test]
+        public void TestTranspose()
+        {
+
+            //Размер 1x1
+            int[,] Matrix = new int[,] {
+                {1 }
+            };
+
+            Transpose(Matrix);
+
+            Assert.That(Matrix, Is.EqualTo(new int[,] {
+                { 1 }}));
+
+            //Размер 2x2
+            Matrix = new int[,] {
+                {1, 2 },
+                {3, 4}
+            };
+
+            Transpose(Matrix);
+
+            Assert.That(Matrix, Is.EqualTo(new int[,] {
+                { 1, 3 },
+                {2, 4 }}));
+
+            //Размер 3x3
+            Matrix = new int[,] {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 }};
+
+            Transpose(Matrix);
+
+            Assert.That(Matrix, Is.EqualTo(new int[,] {
+                { 1, 4, 7 },
+                { 2, 5, 8 },
+                { 3, 6, 9 }}));
+
+            //Размер 4x4
+            Matrix = new int[,] {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+                {13, 14, 15, 16 }};
+
+            Transpose(Matrix);
+
+            Assert.That(Matrix, Is.EqualTo(new int[,] {
+                { 1, 5, 9, 13 },
+                { 2, 6, 10, 14 },
+                { 3, 7, 11, 15 },
+                {4, 8, 12, 16 }}));
+
+            //Размер 5x5
+            Matrix = new int[,] {
+                {1, 2, 3, 4, 5 },
+                {6, 7, 8, 9, 10 },
+                {11, 12, 13, 14, 15 },
+                {16, 17, 18, 19, 20 },
+                {21, 22, 23, 24, 25 }};
+
+            Transpose(Matrix);
+
+            Assert.That(Matrix, Is.EqualTo(new int[,] {
+                {1, 6, 11, 16, 21 },
+                {2, 7, 12, 17, 22 },
+                {3, 8, 13, 18, 23 },
+                {4, 9, 14, 19, 24 },
+                {5, 10, 15, 20, 25 }
+            }));
+
+            //Размер 0x0
+            Assert.That(() => Transpose(new int[,] { }), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            Matrix = null;
+
+            Assert.That(() => Transpose(Matrix), Throws.TypeOf<ArgumentNullException>());
+        }
     }
 }
