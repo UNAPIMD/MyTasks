@@ -7,8 +7,21 @@
     {
         public static T[][] TransposeJaggedArray<T>(T[][] JaggedArray)
         {
+            if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
+            if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("JaggedArray is empty");
 
-            return null;
+            (int N, int M) = (JaggedArray.Length, JaggedArray[0].Length);
+            T[][] NewJaggedArray = new T[M][];
+
+            for(int i = 0; i < M; i++)
+            {
+                NewJaggedArray[i] = new T[N];
+
+                for(int j = 0; j < N; j++)
+                    NewJaggedArray[i][j] = JaggedArray[j][i];
+            }
+
+            return NewJaggedArray;
         }
 
         /// <summary>
