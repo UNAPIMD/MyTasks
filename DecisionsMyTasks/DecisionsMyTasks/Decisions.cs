@@ -1,12 +1,16 @@
-﻿using System.Security.Cryptography;
-
-namespace DecisionsMyTasks
+﻿namespace DecisionsMyTasks
 {
     /// <summary>
     /// Класс решений задач
     /// </summary>
     public class Decisions
     {
+        public static T[][] TransposeJaggedArray<T>(T[][] JaggedArray)
+        {
+
+            return null;
+        }
+
         /// <summary>
         /// Возвращает транспонированную исходную матрицу
         /// </summary>
@@ -22,7 +26,7 @@ namespace DecisionsMyTasks
             T[,] NewMatrix = new T[M, N];
 
             for (int i = 0; i < M; i++)
-                for(int j = 0; j < N; j++)
+                for (int j = 0; j < N; j++)
                     NewMatrix[i, j] = Matrix[j, i];
 
             return NewMatrix;
@@ -38,10 +42,10 @@ namespace DecisionsMyTasks
             if (Matrix.Length == 0) throw new ArgumentOutOfRangeException("Matrix is empty");
             if (Matrix.GetLength(0) != Matrix.GetLength(1)) throw new ArgumentOutOfRangeException("Matrix isn't square");
 
-            
-            for(int i = 0;  i < Matrix.GetLength(0); i++)
-                for(int j =0; j < i; j++) //Матрица транспонируется относительно главной диагонали, поэтому j < i
-                    Swap(ref Matrix[i,j], ref Matrix[j,i]);
+
+            for (int i = 0; i < Matrix.GetLength(0); i++)
+                for (int j = 0; j < i; j++) //Матрица транспонируется относительно главной диагонали, поэтому j < i
+                    Swap(ref Matrix[i, j], ref Matrix[j, i]);
         }
 
         /// <summary>
@@ -56,9 +60,9 @@ namespace DecisionsMyTasks
             if (Matrix == null) throw new ArgumentNullException("Matrix is null");
             if (Matrix.Length == 0) throw new ArgumentOutOfRangeException("Matrix is empty");
 
-            for(int i = 0; i < Matrix.GetLength(0); i++)
+            for (int i = 0; i < Matrix.GetLength(0); i++)
             {
-                for(int j = 0; j  < Matrix.GetLength(1); j++) Console.Write($"{Matrix[i, j]} ");
+                for (int j = 0; j < Matrix.GetLength(1); j++) Console.Write($"{Matrix[i, j]} ");
                 Console.WriteLine();
             }
         }
@@ -75,7 +79,7 @@ namespace DecisionsMyTasks
             if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
             if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("Length of JaggedArray is empty");
 
-            foreach(var x in JaggedArray)
+            foreach (var x in JaggedArray)
             {
                 foreach (var y in x) Console.Write($"{y} ");
                 Console.WriteLine();

@@ -572,10 +572,10 @@ namespace NUnitTestsDecisions
         }
 
         /// <summary>
-        /// Тестирование Transpose()
+        /// Тестирование Transpose() для матриц
         /// </summary>
         [Test]
-        public void TestTranspose()
+        public void TestTransposeForMatrix()
         {
 
             //Размер 1x1
@@ -649,21 +649,24 @@ namespace NUnitTestsDecisions
             //Размер 0x0
             Assert.That(() => Transpose(new int[,] { }), Throws.TypeOf<ArgumentOutOfRangeException>());
 
+            //Матрица не квадратная
             Matrix = new int[,] { { 1, 2, 3 }, { 4, 5, 6 } };
 
-            //Матрица не квадратная
             Assert.That(() => Transpose(Matrix), Throws.TypeOf<ArgumentOutOfRangeException>());
 
+            //Матрица не квадратная
             Matrix = new int[,] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
 
-            //Матрица не квадратная
             Assert.That(() => Transpose(Matrix), Throws.TypeOf<ArgumentOutOfRangeException>());
 
+            //Null
             Matrix = null;
 
             Assert.That(() => Transpose(Matrix), Throws.TypeOf<ArgumentNullException>());
         }
-
+        /// <summary>
+        /// Тестирование TransposeMatrix()
+        /// </summary>
         [Test]
         public void TestTransposeMatrix()
         {
@@ -674,9 +677,9 @@ namespace NUnitTestsDecisions
             //Размер 3x3
             Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }), Is.EqualTo(new int[,] { { 1, 4, 7 }, { 2, 5, 8 }, { 3, 6, 9 } }));
             //Размер 4x4
-            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, {13, 14, 15, 16 } }), Is.EqualTo(new int[,] { { 1, 5, 9, 13 }, { 2, 6, 10, 14 }, { 3, 7, 11, 15 }, {4, 8, 12, 16 } }));
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } }), Is.EqualTo(new int[,] { { 1, 5, 9, 13 }, { 2, 6, 10, 14 }, { 3, 7, 11, 15 }, { 4, 8, 12, 16 } }));
             //Размер 5x5
-            Assert.That(TransposeMatrix(new int[,] { {1, 2, 3, 4, 5 }, {6, 7, 8, 9, 10 }, {11, 12, 13, 14, 15 }, {16, 17, 18, 19, 20 }, {21, 22, 23, 24, 25 } }), Is.EqualTo(new int[,] { {1, 6, 11, 16, 21 }, {2, 7, 12, 17, 22 }, {3, 8, 13, 18, 23 }, {4, 9, 14, 19, 24 }, {5, 10, 15, 20, 25 } }));
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 }, { 11, 12, 13, 14, 15 }, { 16, 17, 18, 19, 20 }, { 21, 22, 23, 24, 25 } }), Is.EqualTo(new int[,] { { 1, 6, 11, 16, 21 }, { 2, 7, 12, 17, 22 }, { 3, 8, 13, 18, 23 }, { 4, 9, 14, 19, 24 }, { 5, 10, 15, 20, 25 } }));
 
             //Размер 1x2
             Assert.That(TransposeMatrix(new int[,] { { 1, 2 } }), Is.EqualTo(new int[,] { { 1 }, { 2 } }));
@@ -687,16 +690,141 @@ namespace NUnitTestsDecisions
             //Размер 3x1
             Assert.That(TransposeMatrix(new int[,] { { 1 }, { 2 }, { 3 } }), Is.EqualTo(new int[,] { { 1, 2, 3 } }));
             //Размер 2x3
-            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3 }, { 4, 5, 6 } }), Is.EqualTo(new int[,] { { 1, 4 }, { 2, 5 }, {3, 6 } }));
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3 }, { 4, 5, 6 } }), Is.EqualTo(new int[,] { { 1, 4 }, { 2, 5 }, { 3, 6 } }));
             //Размер 3x2
             Assert.That(TransposeMatrix(new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 } }), Is.EqualTo(new int[,] { { 1, 3, 5 }, { 2, 4, 6 } }));
 
             //Размер 0x0
             Assert.That(() => TransposeMatrix(new int[,] { }), Throws.TypeOf<ArgumentOutOfRangeException>());
 
+            //Null
             int[,] Matrix = null;
 
             Assert.That(() => TransposeMatrix(Matrix), Throws.TypeOf<ArgumentNullException>());
+        }
+        /// <summary>
+        /// Тестирование Transpose() для зубчатых массивов
+        /// </summary>
+        [Test]
+        public void TestTransposeForJaggedArray()
+        {
+            //Размер 1x1
+            int[][] JaggedArray = new int[][] {
+                new int[]{1}};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1}}));
+
+            //Размер 2x2
+            JaggedArray = new int[][] {
+                new int[]{1, 2}, 
+                new int[]{3, 4 } };
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1, 3},
+                new int[]{2, 4 } }));
+
+            //Размер 3x3
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3},
+                new int[]{4, 5, 6},
+                new int[]{7, 8, 9}};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1, 4, 7},
+                new int[]{2, 5, 8},
+                new int[]{3, 6, 9}}));
+
+            //Размер 4x4
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4},
+                new int[]{5, 6, 7, 8},
+                new int[]{9, 10, 11, 12},
+                new int[]{13, 14, 15, 16}};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1, 5, 9, 13},
+                new int[]{2, 6, 10, 14},
+                new int[]{3, 7, 11, 15},
+                new int[]{4, 8, 12, 16}}));
+
+            //Размер 5x5
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4, 5},
+                new int[]{6, 7, 8, 9, 10},
+                new int[]{11, 12, 13, 14, 15},
+                new int[]{16, 17, 18, 19, 20},
+                new int[]{21, 22, 23, 24, 25 }};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{ 1, 6, 11, 16, 21 }, 
+                new int[]{ 2, 7, 12, 17, 22 }, 
+                new int[]{ 3, 8, 13, 18, 23 }, 
+                new int[]{ 4, 9, 14, 19, 24 }, 
+                new int[]{ 5, 10, 15, 20, 25 }}));
+
+            //Размер 1x2
+            JaggedArray = new int[][] {
+                new int[]{1, 2}};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1}, 
+                new int[]{2 }}));
+
+            //Размер 2x1
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{2 }};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1, 2 }}));
+
+            //Размер 1x3
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3 }};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3}}));
+
+            //Размер 3x1
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3}};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1, 2, 3}}));
+
+            //Размер 2x3
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3},
+                new int[]{4, 5, 6}};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1, 4},
+                new int[]{2, 5},
+                new int[]{3, 6}}));
+
+            //Размер 3x2
+            JaggedArray = new int[][] {
+                new int[]{1, 2},
+                new int[]{3, 4},
+                new int[]{5, 6}};
+
+            Assert.That(TransposeJaggedArray(JaggedArray), Is.EqualTo(new int[][] {
+                new int[]{1, 3, 5},
+                new int[]{2, 4, 6}}));
+
+            //Размер 0x0
+            Assert.That(() => TransposeJaggedArray(new int[][] { }), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Null
+            JaggedArray = null;
+
+            Assert.That(() => TransposeJaggedArray(JaggedArray), Throws.TypeOf<ArgumentNullException>());
+
         }
     }
 }
