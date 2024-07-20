@@ -565,6 +565,10 @@ namespace NUnitTestsDecisions
             Assert.That(JosephusOne(10, 8), Is.EqualTo(1));
             Assert.That(JosephusOne(10, 9), Is.EqualTo(7));
             Assert.That(JosephusOne(10, 10), Is.EqualTo(8));
+
+            for (int i = 0; i >= -10; i--) Assert.That(() => JosephusOne(1, i), Throws.TypeOf<ArgumentOutOfRangeException>());
+            for (int i = 0; i >= -10; i--) Assert.That(() => JosephusOne(i, 1), Throws.TypeOf<ArgumentOutOfRangeException>());
+
         }
 
         /// <summary>
@@ -658,6 +662,41 @@ namespace NUnitTestsDecisions
             Matrix = null;
 
             Assert.That(() => Transpose(Matrix), Throws.TypeOf<ArgumentNullException>());
+        }
+
+        [Test]
+        public void TestTransposeMatrix()
+        {
+            //Размер 1x1
+            Assert.That(TransposeMatrix(new int[,] { { 1 } }), Is.EqualTo(new int[,] { { 1 } }));
+            //Размер 2x2
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2 }, { 3, 4 } }), Is.EqualTo(new int[,] { { 1, 3 }, { 2, 4 } }));
+            //Размер 3x3
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } }), Is.EqualTo(new int[,] { { 1, 4, 7 }, { 2, 5, 8 }, { 3, 6, 9 } }));
+            //Размер 4x4
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, {13, 14, 15, 16 } }), Is.EqualTo(new int[,] { { 1, 5, 9, 13 }, { 2, 6, 10, 14 }, { 3, 7, 11, 15 }, {4, 8, 12, 16 } }));
+            //Размер 5x5
+            Assert.That(TransposeMatrix(new int[,] { {1, 2, 3, 4, 5 }, {6, 7, 8, 9, 10 }, {11, 12, 13, 14, 15 }, {16, 17, 18, 19, 20 }, {21, 22, 23, 24, 25 } }), Is.EqualTo(new int[,] { {1, 6, 11, 16, 21 }, {2, 7, 12, 17, 22 }, {3, 8, 13, 18, 23 }, {4, 9, 14, 19, 24 }, {5, 10, 15, 20, 25 } }));
+
+            //Размер 1x2
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2 } }), Is.EqualTo(new int[,] { { 1 }, { 2 } }));
+            //Размер 2x1
+            Assert.That(TransposeMatrix(new int[,] { { 1 }, { 2 } }), Is.EqualTo(new int[,] { { 1, 2 } }));
+            //Размер 1x3
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3 } }), Is.EqualTo(new int[,] { { 1 }, { 2 }, { 3 } }));
+            //Размер 3x1
+            Assert.That(TransposeMatrix(new int[,] { { 1 }, { 2 }, { 3 } }), Is.EqualTo(new int[,] { { 1, 2, 3 } }));
+            //Размер 2x3
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2, 3 }, { 4, 5, 6 } }), Is.EqualTo(new int[,] { { 1, 4 }, { 2, 5 }, {3, 6 } }));
+            //Размер 3x2
+            Assert.That(TransposeMatrix(new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 } }), Is.EqualTo(new int[,] { { 1, 3, 5 }, { 2, 4, 6 } }));
+
+            //Размер 0x0
+            Assert.That(() => TransposeMatrix(new int[,] { }), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            int[,] Matrix = null;
+
+            Assert.That(() => TransposeMatrix(Matrix), Throws.TypeOf<ArgumentNullException>());
         }
     }
 }

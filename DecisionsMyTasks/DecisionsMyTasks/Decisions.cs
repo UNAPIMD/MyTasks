@@ -8,6 +8,17 @@ namespace DecisionsMyTasks
     public class Decisions
     {
         /// <summary>
+        /// Возвращает транспонированную исходную матрицу
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Matrix"></param>
+        /// <returns></returns>
+        public static T[,] TransposeMatrix<T>(T[,] Matrix)
+        {
+            return null;
+        }
+
+        /// <summary>
         /// Транспонирование квадратной матрицы
         /// </summary>
         /// <param name="Matrix"></param>
@@ -33,7 +44,7 @@ namespace DecisionsMyTasks
         public static void Print<T>(T[,] Matrix)
         {
             if (Matrix == null) throw new ArgumentNullException("Matrix is null");
-            if (Matrix.Length == 0) throw new ArgumentOutOfRangeException("Size of Matrix is 0");
+            if (Matrix.Length == 0) throw new ArgumentOutOfRangeException("Matrix is empty");
 
             for(int i = 0; i < Matrix.GetLength(0); i++)
             {
@@ -52,7 +63,7 @@ namespace DecisionsMyTasks
         public static void Print<T>(T[][] JaggedArray)
         {
             if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
-            if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("Length of JaggedArray is 0");
+            if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("Length of JaggedArray is empty");
 
             foreach(var x in JaggedArray)
             {
@@ -140,7 +151,7 @@ namespace DecisionsMyTasks
             */
 
             if (arr == null) throw new ArgumentNullException("arr is null");
-            if (arr.Length == 0) throw new ArgumentOutOfRangeException("Length of arr is 0");
+            if (arr.Length == 0) throw new ArgumentOutOfRangeException("arr is empty");
 
             Dictionary<string, List<string>> kv = new Dictionary<string, List<string>>();
 
@@ -275,7 +286,7 @@ namespace DecisionsMyTasks
             */
 
             if (line == null) throw new ArgumentNullException("line is null");
-            if (line.Length == 0) throw new ArgumentOutOfRangeException("Length of line is 0");
+            if (line.Length == 0) throw new ArgumentOutOfRangeException("line is empty");
 
             Dictionary<char, int> Roman = new Dictionary<char, int>()
             {
