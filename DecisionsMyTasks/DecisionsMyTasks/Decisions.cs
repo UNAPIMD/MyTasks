@@ -13,8 +13,27 @@
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static int[][] PascalTriangle(int N)
         {
+            /*
+             * Для решения данной задачи представим треугольник Паскаля в виде ступенчатой матрицы,
+             * у которой Matrix[i][j] = Matrix[i - 1][j] + Matrix[i - 1][j - 1], и Triangle[i][0] = 1, и Triangle[i][^1] = 1.
+             * Асимптотическая сложность алгоритма равна O(n^2).
+            */
 
-            return null;
+            if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
+
+            int[][] Triangle = new int[N][];
+            Triangle[0] = new int[] { 1 };
+
+            for (int i = 1; i < N; i++)
+            {
+                Triangle[i] = new int[i + 1];
+                Triangle[i][0] = 1;
+                Triangle[i][^1] = 1;
+
+                for (int j = 1; j < i; j++) Triangle[i][j] = Triangle[i - 1][j] + Triangle[i - 1][j - 1];
+            }
+
+            return Triangle;
         }
 
         public static T[][] TransposeJaggedArray<T>(T[][] JaggedArray)
