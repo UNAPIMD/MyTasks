@@ -5,11 +5,18 @@
     /// </summary>
     public class Decisions
     {
+        /// <summary>
+        /// Возвращает треугольник Паскаля
+        /// </summary>
+        /// <param name="N"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static int[][] PascalTriangle(int N)
         {
 
             return null;
         }
+
         public static T[][] TransposeJaggedArray<T>(T[][] JaggedArray)
         {
             if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
