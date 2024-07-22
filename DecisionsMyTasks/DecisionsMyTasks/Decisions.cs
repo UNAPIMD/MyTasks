@@ -111,18 +111,18 @@
             }
         }
         /// <summary>
-        /// Выводит в консоль массив
+        /// Выводит в консоль последовательность
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="Array"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static void Print<T>(T[] Array)
+        public static void Print<T>(IEnumerable<T> Sequence)
         {
-            if (Array == null) throw new ArgumentNullException("Array is null");
-            if (Array.Length == 0) throw new ArgumentOutOfRangeException("Length of Array is empty");
+            if (Sequence == null) throw new ArgumentNullException("Array is null");
+            if (Sequence.Count() == 0) throw new ArgumentOutOfRangeException("Length of Array is empty");
 
-            foreach (var x in Array) Console.Write($"{x} ");
+            foreach (var x in Sequence) Console.Write($"{x} ");
             Console.WriteLine();
         }
 
