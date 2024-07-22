@@ -5,10 +5,11 @@
     /// </summary>
     public class Decisions
     {
+
         /// <summary>
         /// Поворачивает на 90 градусов квадратный зубчатый массив
         /// </summary>
-        public static void Rotate<T>(ref T[][] JaggedArray)
+        public static void Rotate<T>(T[][] JaggedArray)
         {
         }
 

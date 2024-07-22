@@ -706,7 +706,7 @@ namespace NUnitTestsDecisions
         /// Тестирование Transpose() для зубчатых массивов
         /// </summary>
         [Test]
-        public void TestTransposeForJaggedArray()
+        public void TestTransposeJaggedArray()
         {
             //Размер 1x1
             int[][] JaggedArray = new int[][] {
@@ -991,43 +991,47 @@ namespace NUnitTestsDecisions
         [Test]
         public void TestRotateForJaggedArray()
         {
+            //Размер 1x1
             int[][] JaggedArray = new int[][] {
                 new int[]{1}};
 
-            Rotate(ref JaggedArray);
+            Rotate(JaggedArray);
 
             Assert.That(JaggedArray, Is.EqualTo(new int[][] {
                 new int[]{1}}));
 
+            //Размер 2x2
             JaggedArray = new int[][] {
                 new int[]{1, 2},
                 new int[]{3, 4}};
 
-            Rotate(ref JaggedArray);
+            Rotate(JaggedArray);
 
             Assert.That(JaggedArray, Is.EqualTo(new int[][] {
                 new int[]{3, 1},
                 new int[]{4, 2}}));
 
+            //Размер 3x3
             JaggedArray = new int[][] {
                 new int[]{1, 2, 3},
                 new int[]{4, 5, 6},
                 new int[]{7, 8, 9}};
 
-            Rotate(ref JaggedArray);
+            Rotate(JaggedArray);
 
             Assert.That(JaggedArray, Is.EqualTo(new int[][] {
                 new int[]{7, 4, 1},
                 new int[]{8, 5, 2},
                 new int[]{9, 6, 3}}));
 
+            //Размер 4x4
             JaggedArray = new int[][] {
                 new int[]{1, 2, 3, 4},
                 new int[]{5, 6, 7, 8},
                 new int[]{9, 10, 11, 12},
                 new int[]{13, 14, 15, 16}};
 
-            Rotate(ref JaggedArray);
+            Rotate(JaggedArray);
 
             Assert.That(JaggedArray, Is.EqualTo(new int[][] {
                 new int[]{13, 9, 5, 1},
@@ -1035,6 +1039,7 @@ namespace NUnitTestsDecisions
                 new int[]{15, 11, 7, 3},
                 new int[]{16, 12, 8, 4}}));
 
+            //Размер 5x5
             JaggedArray = new int[][] {
                 new int[]{1, 2, 3, 4, 5 },
                 new int[]{6, 7, 8, 9, 10 },
@@ -1042,7 +1047,7 @@ namespace NUnitTestsDecisions
                 new int[]{16, 17, 18, 19, 20 },
                 new int[]{21, 22, 23, 24, 25 } };
 
-            Rotate(ref JaggedArray);
+            Rotate(JaggedArray);
 
             Assert.That(JaggedArray, Is.EqualTo(new int[][] {
                 new int[]{21, 16, 11, 6, 1},
@@ -1051,13 +1056,87 @@ namespace NUnitTestsDecisions
                 new int[]{24, 19, 14, 9, 4},
                 new int[]{25, 20, 15, 10, 5} }));
 
+            //Размер 0x0
             JaggedArray = new int[][] {};
 
-            Assert.That(() => Rotate(ref JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => Rotate(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
 
+            //Null
             JaggedArray = null;
 
-            Assert.That(() => Rotate(ref JaggedArray), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => Rotate(JaggedArray), Throws.TypeOf<ArgumentNullException>());
         }
+        /// <summary>
+        /// Тестирование Transpose() для квадратных зубчатых массивов
+        /// </summary>
+        [Test]
+        public void TestTransposeForJaggedArray()
+        {
+            //Размер 1x1
+            int[][] JaggedArray = new int[][] {
+                new int[]{1}};
+
+            Transpose(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1}}));
+
+            //Размер 2x2
+            JaggedArray = new int[][] {
+                new int[]{1, 2},
+                new int[]{3, 4 } };
+
+            Transpose(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1, 3},
+                new int[]{2, 4 }}));
+
+            //Размер 3x3
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3},
+                new int[]{4, 5, 6 },
+                new int[]{7, 8, 9 } };
+
+            Transpose(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1, 4, 7},
+                new int[]{2, 5, 8 },
+                new int[]{3, 6, 9 } }));
+
+            //Размер 4x4
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4},
+                new int[]{5, 6, 7, 8},
+                new int[]{9, 10, 11, 12},
+                new int[]{13, 14, 15, 16}};
+
+            Transpose(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1, 5, 9, 13},
+                new int[]{2, 6, 10, 14},
+                new int[]{3, 7, 11, 15},
+                new int[]{4, 8, 12, 16}}));
+
+            //Размер 5x5
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4, 5},
+                new int[]{6, 7, 8, 9, 10},
+                new int[]{11, 12, 13, 14, 15},
+                new int[]{16, 17, 18, 19, 20},
+                new int[]{21, 22, 23, 24, 25 }};
+
+            Transpose(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{ 1, 6, 11, 16, 21 },
+                new int[]{ 2, 7, 12, 17, 22 },
+                new int[]{ 3, 8, 13, 18, 23 },
+                new int[]{ 4, 9, 14, 19, 24 },
+                new int[]{ 5, 10, 15, 20, 25 }}));
+        }
+
     }
 }
