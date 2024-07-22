@@ -1136,6 +1136,34 @@ namespace NUnitTestsDecisions
                 new int[]{ 3, 8, 13, 18, 23 },
                 new int[]{ 4, 9, 14, 19, 24 },
                 new int[]{ 5, 10, 15, 20, 25 }}));
+
+            //Неквадратный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1, 2}};
+
+            Assert.That(() => Transpose(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Неквадратный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1, 2},
+                new int[]{3}};
+
+            Assert.That(() => Transpose(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Неквадратный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1, 2},
+                new int[]{3, 4, 5}};
+
+            Assert.That(() => Transpose(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Неквадратный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{2, 3, 4}};
+
+            Assert.That(() => Transpose(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
         }
 
     }
