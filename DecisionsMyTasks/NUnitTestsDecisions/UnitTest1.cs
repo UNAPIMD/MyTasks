@@ -1405,5 +1405,33 @@ namespace NUnitTestsDecisions
 
             Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentNullException>());
         }
+
+        [Test]
+        public void TestMaxArea()
+        {
+            Assert.That(MaxArea(new double[] { 1, 1 }), Is.EqualTo(1));
+
+            Assert.That(MaxArea(new double[] { 1, 1, 3 }), Is.EqualTo(2));
+
+            Assert.That(MaxArea(new double[] { 1, 5, 1 }), Is.EqualTo(2));
+
+            Assert.That(MaxArea(new double[] { 5, 5, 1 }), Is.EqualTo(5));
+
+            Assert.That(MaxArea(new double[] { 4, 5, 1, 10 }), Is.EqualTo(12));
+
+            Assert.That(MaxArea(new double[] { 0, 7, 1, 5 }), Is.EqualTo(10));
+
+            Assert.That(MaxArea(new double[] { 1, 3, 6, 5 }), Is.EqualTo(6));
+
+            Assert.That(MaxArea(new double[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 }), Is.EqualTo(49));
+
+            Assert.That(MaxArea(new double[] { 1 }), Is.EqualTo(0));
+
+            Assert.That(() => MaxArea(new double[] { }), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            Assert.That(() => MaxArea(null), Throws.TypeOf<ArgumentNullException>());
+
+
+        }
     }
 }

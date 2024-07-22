@@ -6,6 +6,17 @@
     public class Decisions
     {
         /// <summary>
+        /// Возвращает наибольший объём воды в контейнере, образованном двумя некоторыми линиями массива и осью X
+        /// </summary>
+        /// <param name="heights"></param>
+        /// <returns></returns>
+        public static double MaxArea(double[] heights)
+        {
+
+            return -1;
+        }
+
+        /// <summary>
         /// Меняет местами столбцы прямоугольного зубчатого массива
         /// </summary>
         /// <typeparam name="T"></typeparam>
