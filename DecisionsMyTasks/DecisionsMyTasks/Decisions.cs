@@ -44,12 +44,24 @@
             return Triangle;
         }
         /// <summary>
-        /// Транспонирует квадратный зубчатый массив
+        /// Транспонирование квадратного зубчатого массива
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="JaggedArray"></param>
         public static void Transpose<T>(T[][] JaggedArray)
         {
+            if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
+            if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("JaggedArray is empty");
+
+            int N = JaggedArray.Length;
+
+            for(int i = 0; i < N; i++)
+            {
+                if (JaggedArray[i].Length != N) throw new ArgumentOutOfRangeException("JaggedArray isn't square");
+
+                for (int j = 0; j < i; j++) Swap(ref JaggedArray[i][j], ref JaggedArray[j][i]);
+            }
+
         }
         /// <summary>
         /// Возвращает транспонированный исходный зубчатый массив
