@@ -6,6 +6,13 @@
     public class Decisions
     {
         /// <summary>
+        /// Поворачивает на 90 градусов квадратный зубчатый массив
+        /// </summary>
+        public static void Rotate<T>(ref T[][] JaggedArray)
+        {
+        }
+
+        /// <summary>
         /// Возвращает треугольник Паскаля
         /// </summary>
         /// <param name="N"></param>
@@ -35,6 +42,22 @@
 
             return Triangle;
         }
+        /// <summary>
+        /// Транспонирует квадратный зубчатый массив
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="JaggedArray"></param>
+        public static void Transpose<T>(T[][] JaggedArray)
+        {
+        }
+        /// <summary>
+        /// Возвращает транспонированный исходный зубчатый массив
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="JaggedArray"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
 
         public static T[][] TransposeJaggedArray<T>(T[][] JaggedArray)
         {
