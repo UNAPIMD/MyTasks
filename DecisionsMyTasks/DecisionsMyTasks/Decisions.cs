@@ -5,6 +5,14 @@
     /// </summary>
     public class Decisions
     {
+        /// <summary>
+        /// Меняет местами столбцы прямоугольного зубчатого массива
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="JaggedArray"></param>
+        public static void SymCol<T>(T[][] JaggedArray)
+        {
+        }
 
         /// <summary>
         /// Поворачивает на 90 градусов квадратный зубчатый массив

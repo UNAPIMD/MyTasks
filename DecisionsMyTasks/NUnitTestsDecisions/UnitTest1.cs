@@ -1166,5 +1166,244 @@ namespace NUnitTestsDecisions
 
         }
 
+        [Test]
+        public void TestSymCol()
+        {
+            //Размер 1x1
+            int[][] JaggedArray = new int[][] {
+                new int[]{1}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1}}));
+
+            //Размер 2x1
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{2} };
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1},
+                new int[]{2}}));
+
+            //Размер 3x1
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3}}));
+
+            //Размер 4x1
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3},
+                new int[]{4}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3},
+                new int[]{4}}));
+
+            //Размер 5x1
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3},
+                new int[]{4},
+                new int[]{5}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{1},
+                new int[]{2},
+                new int[]{3},
+                new int[]{4},
+                new int[]{5}}));
+
+            //Размер 1x2
+            JaggedArray = new int[][] {
+                new int[]{1, 2}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{2, 1}}));
+
+            //Размер 1x3
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{3, 2, 1}}));
+
+            //Размер 1x4
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{4, 3, 2, 1}}));
+
+            //Размер 1x5
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4, 5}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{5, 4, 3, 2, 1}}));
+
+            //Размер 2x2
+            JaggedArray = new int[][] {
+                new int[]{1, 2},
+                new int[]{3, 4}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{2, 1},
+                new int[]{4, 3}}));
+
+            //Размер 2x3
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3},
+                new int[]{4, 5, 6}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{3, 2, 1},
+                new int[]{6, 5, 4}}));
+
+            //Размер 2x4
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4},
+                new int[]{5, 6, 7, 8}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{4, 3, 2, 1},
+                new int[]{8, 7, 6, 5}}));
+
+            //Размер 2x5
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4, 5},
+                new int[]{6, 7, 8, 9, 10}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{5, 4, 3, 2, 1},
+                new int[]{10, 9, 8, 7, 6}}));
+
+            //Размер 3x2
+            JaggedArray = new int[][] {
+                new int[]{1, 2},
+                new int[]{3, 4},
+                new int[]{5, 6}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{2, 1},
+                new int[]{4, 3},
+                new int[]{6, 5}}));
+
+            //Размер 3x3
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3},
+                new int[]{4, 5, 6},
+                new int[]{7, 8, 9}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{3, 2, 1},
+                new int[]{6, 5 , 4},
+                new int[]{9, 8, 7}}));
+
+            //Размер 3x4
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4},
+                new int[]{5, 6, 7, 8},
+                new int[]{9, 10, 11, 12}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{4, 3, 2, 1},
+                new int[]{8, 7, 6, 5},
+                new int[]{12, 11, 10, 9}}));
+
+            //Размер 3x5
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4, 5},
+                new int[]{6, 7, 8, 9, 10},
+                new int[]{11, 12, 13, 14, 15}};
+
+            SymCol(JaggedArray);
+
+            Assert.That(JaggedArray, Is.EqualTo(new int[][] {
+                new int[]{5, 4, 3, 2, 1},
+                new int[]{10, 9, 8, 7, 6},
+                new int[]{15, 14, 13, 12, 11}}));
+
+            //Непрямоугольный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1, 2},
+                new int[]{6, 7, 8, 9, 10},
+                new int[]{11, 12, 13, 14, 15}};
+
+            Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Непрямоугольный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4, 5},
+                new int[]{6, 7, 8, }};
+
+            Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Непрямоугольный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1},
+                new int[]{6, 7}};
+
+            Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Непрямоугольный зубчатый массив
+            JaggedArray = new int[][] {
+                new int[]{1, 2, 3, 4, 5},
+                new int[]{6, 7, 8, }};
+
+            Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Пустой зубчатый массив
+            JaggedArray = new int[][] { };
+
+            Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            //Null
+            JaggedArray = null;
+
+            Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentNullException>());
+        }
     }
 }
