@@ -12,6 +12,18 @@
         /// <param name="JaggedArray"></param>
         public static void SymCol<T>(T[][] JaggedArray)
         {
+            if (JaggedArray == null) throw new ArgumentNullException("JaggedArray is null");
+            if (JaggedArray.Length == 0) throw new ArgumentOutOfRangeException("JaggedArray is empty");
+
+            int L = JaggedArray[0].Length;
+
+            for(int i = 0; i < JaggedArray.Length; i++)
+            {
+                if (JaggedArray[i].Length != L) throw new ArgumentOutOfRangeException("JaggedArray isn't rectangular");
+
+                for (int j = 0; j < L / 2; j++)
+                    Swap(ref JaggedArray[i][j], ref JaggedArray[i][L - j - 1]);
+            }
         }
 
         /// <summary>
