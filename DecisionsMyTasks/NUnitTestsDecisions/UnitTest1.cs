@@ -1165,7 +1165,9 @@ namespace NUnitTestsDecisions
             Assert.That(() => Transpose(JaggedArray), Throws.TypeOf<ArgumentOutOfRangeException>());
 
         }
-
+        /// <summary>
+        /// Тестирование SymCol()
+        /// </summary>
         [Test]
         public void TestSymCol()
         {
@@ -1406,6 +1408,9 @@ namespace NUnitTestsDecisions
             Assert.That(() => SymCol(JaggedArray), Throws.TypeOf<ArgumentNullException>());
         }
 
+        /// <summary>
+        /// Тестирование MaxArea()
+        /// </summary>
         [Test]
         public void TestMaxArea()
         {
@@ -1431,6 +1436,102 @@ namespace NUnitTestsDecisions
 
             Assert.That(() => MaxArea(null), Throws.TypeOf<ArgumentNullException>());
 
+
+        }
+        /// <summary>
+        /// Тестирование JosephusTwo()
+        /// </summary>
+        [Test]
+        public void TestJosephusTwo()
+        {
+            for (int i = 1; i <= 10; i++) Assert.That(JosephusTwo(1, i), Is.EqualTo(1));
+
+            for (int i = 1; i <= 10; i++) Assert.That(JosephusTwo(i, 1), Is.EqualTo(i));
+
+            for (int i = 2; i <= 10; i++) Assert.That(JosephusTwo(2, i), Is.EqualTo(i % 2 + 1));
+
+            Assert.That(JosephusTwo(3, 2), Is.EqualTo(3));
+            Assert.That(JosephusTwo(3, 3), Is.EqualTo(2));
+            Assert.That(JosephusTwo(3, 4), Is.EqualTo(2));
+            Assert.That(JosephusTwo(3, 5), Is.EqualTo(1));
+            Assert.That(JosephusTwo(3, 6), Is.EqualTo(1));
+            Assert.That(JosephusTwo(3, 7), Is.EqualTo(3));
+            Assert.That(JosephusTwo(3, 8), Is.EqualTo(3));
+            Assert.That(JosephusTwo(3, 9), Is.EqualTo(2));
+            Assert.That(JosephusTwo(3, 10), Is.EqualTo(2));
+
+            Assert.That(JosephusTwo(4, 2), Is.EqualTo(1));
+            Assert.That(JosephusTwo(4, 3), Is.EqualTo(1));
+            Assert.That(JosephusTwo(4, 4), Is.EqualTo(2));
+            Assert.That(JosephusTwo(4, 5), Is.EqualTo(2));
+            Assert.That(JosephusTwo(4, 6), Is.EqualTo(3));
+            Assert.That(JosephusTwo(4, 7), Is.EqualTo(2));
+            Assert.That(JosephusTwo(4, 8), Is.EqualTo(3));
+            Assert.That(JosephusTwo(4, 9), Is.EqualTo(3));
+            Assert.That(JosephusTwo(4, 10), Is.EqualTo(4));
+
+            Assert.That(JosephusTwo(5, 2), Is.EqualTo(3));
+            Assert.That(JosephusTwo(5, 3), Is.EqualTo(4));
+            Assert.That(JosephusTwo(5, 4), Is.EqualTo(1));
+            Assert.That(JosephusTwo(5, 5), Is.EqualTo(2));
+            Assert.That(JosephusTwo(5, 6), Is.EqualTo(4));
+            Assert.That(JosephusTwo(5, 7), Is.EqualTo(4));
+            Assert.That(JosephusTwo(5, 8), Is.EqualTo(1));
+            Assert.That(JosephusTwo(5, 9), Is.EqualTo(2));
+            Assert.That(JosephusTwo(5, 10), Is.EqualTo(4));
+
+            Assert.That(JosephusTwo(6, 2), Is.EqualTo(5));
+            Assert.That(JosephusTwo(6, 3), Is.EqualTo(1));
+            Assert.That(JosephusTwo(6, 4), Is.EqualTo(5));
+            Assert.That(JosephusTwo(6, 5), Is.EqualTo(1));
+            Assert.That(JosephusTwo(6, 6), Is.EqualTo(4));
+            Assert.That(JosephusTwo(6, 7), Is.EqualTo(5));
+            Assert.That(JosephusTwo(6, 8), Is.EqualTo(3));
+            Assert.That(JosephusTwo(6, 9), Is.EqualTo(5));
+            Assert.That(JosephusTwo(6, 10), Is.EqualTo(2));
+
+            Assert.That(JosephusTwo(7, 2), Is.EqualTo(7));
+            Assert.That(JosephusTwo(7, 3), Is.EqualTo(4));
+            Assert.That(JosephusTwo(7, 4), Is.EqualTo(2));
+            Assert.That(JosephusTwo(7, 5), Is.EqualTo(6));
+            Assert.That(JosephusTwo(7, 6), Is.EqualTo(3));
+            Assert.That(JosephusTwo(7, 7), Is.EqualTo(5));
+            Assert.That(JosephusTwo(7, 8), Is.EqualTo(4));
+            Assert.That(JosephusTwo(7, 9), Is.EqualTo(7));
+            Assert.That(JosephusTwo(7, 10), Is.EqualTo(5));
+
+            Assert.That(JosephusTwo(8, 2), Is.EqualTo(1));
+            Assert.That(JosephusTwo(8, 3), Is.EqualTo(7));
+            Assert.That(JosephusTwo(8, 4), Is.EqualTo(6));
+            Assert.That(JosephusTwo(8, 5), Is.EqualTo(3));
+            Assert.That(JosephusTwo(8, 6), Is.EqualTo(1));
+            Assert.That(JosephusTwo(8, 7), Is.EqualTo(4));
+            Assert.That(JosephusTwo(8, 8), Is.EqualTo(4));
+            Assert.That(JosephusTwo(8, 9), Is.EqualTo(8));
+            Assert.That(JosephusTwo(8, 10), Is.EqualTo(7));
+
+            Assert.That(JosephusTwo(9, 2), Is.EqualTo(3));
+            Assert.That(JosephusTwo(9, 3), Is.EqualTo(1));
+            Assert.That(JosephusTwo(9, 4), Is.EqualTo(1));
+            Assert.That(JosephusTwo(9, 5), Is.EqualTo(8));
+            Assert.That(JosephusTwo(9, 6), Is.EqualTo(7));
+            Assert.That(JosephusTwo(9, 7), Is.EqualTo(2));
+            Assert.That(JosephusTwo(9, 8), Is.EqualTo(3));
+            Assert.That(JosephusTwo(9, 9), Is.EqualTo(8));
+            Assert.That(JosephusTwo(9, 10), Is.EqualTo(8));
+
+            Assert.That(JosephusTwo(10, 2), Is.EqualTo(5));
+            Assert.That(JosephusTwo(10, 3), Is.EqualTo(4));
+            Assert.That(JosephusTwo(10, 4), Is.EqualTo(5));
+            Assert.That(JosephusTwo(10, 5), Is.EqualTo(3));
+            Assert.That(JosephusTwo(10, 6), Is.EqualTo(3));
+            Assert.That(JosephusTwo(10, 7), Is.EqualTo(9));
+            Assert.That(JosephusTwo(10, 8), Is.EqualTo(1));
+            Assert.That(JosephusTwo(10, 9), Is.EqualTo(7));
+            Assert.That(JosephusTwo(10, 10), Is.EqualTo(8));
+
+            for (int i = 0; i >= -10; i--) Assert.That(() => JosephusTwo(1, i), Throws.TypeOf<ArgumentOutOfRangeException>());
+            for (int i = 0; i >= -10; i--) Assert.That(() => JosephusTwo(i, 1), Throws.TypeOf<ArgumentOutOfRangeException>());
 
         }
     }

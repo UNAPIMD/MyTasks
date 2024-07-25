@@ -5,6 +5,12 @@
     /// </summary>
     public class Decisions
     {
+        public static int JosephusTwo(int N, int K)
+        {
+
+            return -1;
+        }
+
         /// <summary>
         /// Задача про контейнер с наибольшим количеством воды
         /// </summary>
