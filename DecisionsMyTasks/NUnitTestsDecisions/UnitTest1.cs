@@ -1572,6 +1572,14 @@ namespace NUnitTestsDecisions
 
             Assert.That(LongestCommonPrefix(null), Is.EqualTo("wh"));
 
+            arr = new string[] { "hello" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("hello"));
+
+            arr = new string[] { "tea" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("tea"));
+
             arr = new string[] { };
 
             Assert.That(() => LongestCommonPrefix(arr), Throws.TypeOf<ArgumentOutOfRangeException>());
