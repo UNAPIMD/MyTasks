@@ -5,6 +5,12 @@
     /// </summary>
     public class Decisions
     {
+        public static string LongestCommonPrefix(string[] arr)
+        {
+
+            return null;
+        }
+
         /// <summary>
         /// Задача Иосифа Флавия
         /// </summary>

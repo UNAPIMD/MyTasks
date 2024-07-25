@@ -1534,5 +1534,53 @@ namespace NUnitTestsDecisions
             for (int i = 0; i >= -10; i--) Assert.That(() => JosephusTwo(i, 1), Throws.TypeOf<ArgumentOutOfRangeException>());
 
         }
+        /// <summary>
+        /// Тестирование LongestCommonPrefix()
+        /// </summary>
+        [Test]
+        public void TestLongestCommonPrefix()
+        {
+            string[] arr = new string[] { "flower", "flow", "flowers" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("flow"));
+
+            arr = new string[] { "flower", "flow", "flood", "fly" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("fl"));
+
+            arr = new string[] { "cupcake", "cup", "curr" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("cu"));
+
+            arr = new string[] { "cat", "can", "car", "cinema" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("c"));
+
+            arr = new string[] { "bat", "buy"};
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("b"));
+
+            arr = new string[] { "hello", "cat", "what", "tin" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo(""));
+
+            arr = new string[] { "tin", "tab", "bat", "nit" };
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo(""));
+
+            arr = new string[] { "what", "where", "who"};
+
+            Assert.That(LongestCommonPrefix(null), Is.EqualTo("wh"));
+
+            arr = new string[] { };
+
+            Assert.That(() => LongestCommonPrefix(arr), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            arr = null;
+
+            Assert.That(() => LongestCommonPrefix(arr), Throws.TypeOf<ArgumentNullException>());
+
+        }
+
     }
 }
