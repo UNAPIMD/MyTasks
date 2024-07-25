@@ -1542,43 +1542,43 @@ namespace NUnitTestsDecisions
         {
             string[] arr = new string[] { "flower", "flow", "flowers" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("flow"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("flow"));
 
             arr = new string[] { "flower", "flow", "flood", "fly" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("fl"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("fl"));
 
             arr = new string[] { "cupcake", "cup", "curr" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("cu"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("cu"));
 
             arr = new string[] { "cat", "can", "car", "cinema" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("c"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("c"));
 
             arr = new string[] { "bat", "buy"};
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("b"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("b"));
 
             arr = new string[] { "hello", "cat", "what", "tin" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo(""));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo(""));
 
             arr = new string[] { "tin", "tab", "bat", "nit" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo(""));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo(""));
 
             arr = new string[] { "what", "where", "who"};
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("wh"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("wh"));
 
             arr = new string[] { "hello" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("hello"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("hello"));
 
             arr = new string[] { "tea" };
 
-            Assert.That(LongestCommonPrefix(null), Is.EqualTo("tea"));
+            Assert.That(LongestCommonPrefix(arr), Is.EqualTo("tea"));
 
             arr = new string[] { };
 

@@ -1,14 +1,45 @@
-﻿namespace DecisionsMyTasks
+﻿using System.Text;
+
+namespace DecisionsMyTasks
 {
     /// <summary>
     /// Класс решений задач
     /// </summary>
     public class Decisions
     {
-        public static string LongestCommonPrefix(string[] arr)
+        /// <summary>
+        /// Возвращает самую длинную строку общего префикса среди массива строк
+        /// </summary>
+        /// <param name="Array"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static string LongestCommonPrefix(string[] Array)
         {
+            /*
+             * Будем сравнивать начальный элемент массива с остальными его компонентами до тех пор,
+             * пока не выявится хотя бы одно несоответствие:
+             * длина произвольного элемента меньше длины начального или символы одной позиции рассматриваемых строк не совпадают
+            */
 
-            return null;
+            if (Array == null) throw new ArgumentNullException("Array is null");
+            if (Array.Length == 0) throw new ArgumentOutOfRangeException("Array is empty");
+
+            if (Array.Length == 1) return Array[0];
+
+            StringBuilder prefix = new StringBuilder();
+
+            for (int i = 0; i < Array[0].Length; i++)
+            {
+                char symbol = Array[0][i];
+
+                for (int j = 1; j < Array.Length; j++)
+                    if (Array[j].Length == i || !Array[j][i].Equals(symbol)) return prefix.ToString();
+
+                prefix.Append(symbol);
+            }
+
+            return prefix.ToString();
         }
 
         /// <summary>
@@ -33,11 +64,11 @@
 
             LinkedList<int> people = new LinkedList<int>();
 
-            for(int i = 0; i < N; i++) people.AddLast(i+1); //Заполнение списка людьми с указанием их номеров
+            for (int i = 0; i < N; i++) people.AddLast(i + 1); //Заполнение списка людьми с указанием их номеров
 
-            while(people.Count != 1)
+            while (people.Count != 1)
             {
-                int count = K-1;
+                int count = K - 1;
                 while (count != 0)
                 {
                     var human = people.First;
@@ -84,7 +115,7 @@
 
             while (left < right)
             {
-                S = Math.Max(S, Math.Min(Heights[left], Heights[right])*(right - left));
+                S = Math.Max(S, Math.Min(Heights[left], Heights[right]) * (right - left));
 
                 //Смешение границы с наименьшей высотой
                 if (Heights[left] < Heights[right]) left++;
@@ -106,7 +137,7 @@
 
             int L = JaggedArray[0].Length;
 
-            for(int i = 0; i < JaggedArray.Length; i++)
+            for (int i = 0; i < JaggedArray.Length; i++)
             {
                 if (JaggedArray[i].Length != L) throw new ArgumentOutOfRangeException("JaggedArray isn't rectangular");
 
@@ -169,7 +200,7 @@
 
             int N = JaggedArray.Length;
 
-            for(int i = 0; i < N; i++)
+            for (int i = 0; i < N; i++)
             {
                 if (JaggedArray[i].Length != N) throw new ArgumentOutOfRangeException("JaggedArray isn't square");
 
@@ -194,11 +225,11 @@
             (int N, int M) = (JaggedArray.Length, JaggedArray[0].Length);
             T[][] NewJaggedArray = new T[M][];
 
-            for(int i = 0; i < M; i++)
+            for (int i = 0; i < M; i++)
             {
                 NewJaggedArray[i] = new T[N];
 
-                for(int j = 0; j < N; j++)
+                for (int j = 0; j < N; j++)
                     NewJaggedArray[i][j] = JaggedArray[j][i];
             }
 
