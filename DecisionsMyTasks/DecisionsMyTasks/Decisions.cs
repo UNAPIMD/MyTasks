@@ -5,10 +5,47 @@
     /// </summary>
     public class Decisions
     {
+        /// <summary>
+        /// Задача Иосифа Флавия
+        /// </summary>
+        /// <param name="N"></param>
+        /// <param name="K"></param>
+        /// <returns></returns>
         public static int JosephusTwo(int N, int K)
         {
+            /*
+             * Запишем в линейный двусвязный список все N человек, указав их номера.
+             * Будем постепенно переставлять элементы в начале списка в его конец, пока число компонентов ЛДС не будет равняться единице
+             * Номера последнего оставшегося человека является ответом на данную задачу
+            */
 
-            return -1;
+            if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
+            if (K <= 0) throw new ArgumentOutOfRangeException("K <= 0");
+
+            if (N == 1) return 1;
+            if (K == 1) return N;
+
+            LinkedList<int> people = new LinkedList<int>();
+
+            for(int i = 0; i < N; i++) people.AddLast(i+1); //Заполнение списка людьми с указанием их номеров
+
+            while(people.Count != 1)
+            {
+                int count = K-1;
+                while (count != 0)
+                {
+                    var human = people.First;
+
+                    people.RemoveFirst();
+                    people.AddLast(human);
+
+                    count--;
+                }
+
+                people.RemoveFirst();
+            }
+
+            return people.First.Value;
         }
 
         /// <summary>
