@@ -1654,7 +1654,51 @@ namespace NUnitTestsDecisions
             Assert.That(() => BinarySearch(chrs, 'D'), Throws.TypeOf<ArgumentNullException>());
             Assert.That(() => BinarySearch(chrs, 'E'), Throws.TypeOf<ArgumentNullException>());
         }
+        /// <summary>
+        /// Тестирование IntToRoman()
+        /// </summary>
+        [Test]
+        public void TestIntToRoman()
+        {
+            Assert.That(IntToRoman(1), Is.EqualTo("I"));
+            Assert.That(IntToRoman(2), Is.EqualTo("II"));
+            Assert.That(IntToRoman(3), Is.EqualTo("III"));
+            Assert.That(IntToRoman(4), Is.EqualTo("IV"));
+            Assert.That(IntToRoman(5), Is.EqualTo("V"));
+            Assert.That(IntToRoman(6), Is.EqualTo("VI"));
+            Assert.That(IntToRoman(7), Is.EqualTo("VII"));
+            Assert.That(IntToRoman(8), Is.EqualTo("VIII"));
+            Assert.That(IntToRoman(9), Is.EqualTo("IX"));
+            Assert.That(IntToRoman(10), Is.EqualTo("X"));
+            Assert.That(IntToRoman(11), Is.EqualTo("XI"));
+            Assert.That(IntToRoman(12), Is.EqualTo("XII"));
 
+            Assert.That(IntToRoman(56), Is.EqualTo("LVI"));
+            Assert.That(IntToRoman(89), Is.EqualTo("LXXXIX"));
+            Assert.That(IntToRoman(99), Is.EqualTo("XCIX"));
+            Assert.That(IntToRoman(101), Is.EqualTo("CI"));
+            Assert.That(IntToRoman(132), Is.EqualTo("CXXXII"));
+            Assert.That(IntToRoman(169), Is.EqualTo("CLXIX"));
+            Assert.That(IntToRoman(488), Is.EqualTo("CDLXXXVIII"));
+            Assert.That(IntToRoman(513), Is.EqualTo("DXIII"));
+            Assert.That(IntToRoman(671), Is.EqualTo("DCLXXI"));
+            Assert.That(IntToRoman(725), Is.EqualTo("DCCXXV"));
+            Assert.That(IntToRoman(899), Is.EqualTo("DCCCXCIX"));
+            Assert.That(IntToRoman(899), Is.EqualTo("DCCCXCIX"));
+            Assert.That(IntToRoman(900), Is.EqualTo("CM"));
+            Assert.That(IntToRoman(1000), Is.EqualTo("M"));
+            Assert.That(IntToRoman(1561), Is.EqualTo("MDLXI"));
+            Assert.That(IntToRoman(1679), Is.EqualTo("MDCLXXIX"));
+            Assert.That(IntToRoman(1812), Is.EqualTo("MDCCCXII"));
+            Assert.That(IntToRoman(1994), Is.EqualTo("MCMXCIV"));
+            Assert.That(IntToRoman(2016), Is.EqualTo("MMXVI"));
+            Assert.That(IntToRoman(2222), Is.EqualTo("MMCCXXII"));
+            Assert.That(IntToRoman(2405), Is.EqualTo("MMCDV"));
+            Assert.That(IntToRoman(3607), Is.EqualTo("MMMDCVII"));
+            Assert.That(IntToRoman(3749), Is.EqualTo("MMMDCCXLIX"));
+
+            for(int i = 0; i > 10; i--) Assert.That(() => IntToRoman(i), Throws.TypeOf<ArgumentOutOfRangeException>());
+        }
 
     }
 }

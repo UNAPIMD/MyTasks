@@ -7,6 +7,13 @@ namespace DecisionsMyTasks
     /// </summary>
     public class Decisions
     {
+        public static string IntToRoman(int value)
+        {
+
+            return null;
+        }
+
+
         /// <summary>
         /// Бинарный поиск элемента в отсортированном массиве
         /// </summary>
@@ -597,7 +604,7 @@ namespace DecisionsMyTasks
             if (line == null) throw new ArgumentNullException("line is null");
             if (line.Length == 0) throw new ArgumentOutOfRangeException("line is empty");
 
-            Dictionary<char, int> Roman = new Dictionary<char, int>()
+            Dictionary<char, int> Alpabet = new Dictionary<char, int>()
             {
                 ['I'] = 1,
                 ['V'] = 5,
@@ -614,7 +621,7 @@ namespace DecisionsMyTasks
 
             int result = 0;
 
-            foreach (var x in line) result += Roman[x];
+            foreach (var x in line) result += Alpabet[x];
 
             return result;
         }
