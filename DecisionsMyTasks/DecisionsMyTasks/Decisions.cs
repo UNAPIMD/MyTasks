@@ -8,6 +8,19 @@ namespace DecisionsMyTasks
     public class Decisions
     {
         /// <summary>
+        /// Бинарный поиск элемента в отсортированном массиве
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Array"></param>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public static int BinarySearch<T>(T[] Array, T Target) where T : IComparable<T>
+        {
+
+            return -1;
+        }
+
+        /// <summary>
         /// Задача о ханойский башнях
         /// </summary>
         /// <param name="N"></param>

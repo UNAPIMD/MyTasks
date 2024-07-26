@@ -1589,6 +1589,72 @@ namespace NUnitTestsDecisions
             Assert.That(() => LongestCommonPrefix(arr), Throws.TypeOf<ArgumentNullException>());
 
         }
+        [Test]
+        public void TestBinarySearch()
+        {
+            int[] inters = new int[] { -4,  -3, -1, 0, 2, 4, 9, 11 };
+
+            Assert.That(BinarySearch(inters, -4), Is.EqualTo(0));
+            Assert.That(BinarySearch(inters, -3), Is.EqualTo(1));
+            Assert.That(BinarySearch(inters, -1), Is.EqualTo(2));
+            Assert.That(BinarySearch(inters, 0), Is.EqualTo(3));
+            Assert.That(BinarySearch(inters, 2), Is.EqualTo(4));
+            Assert.That(BinarySearch(inters, 4), Is.EqualTo(5));
+            Assert.That(BinarySearch(inters, 9), Is.EqualTo(6));
+            Assert.That(BinarySearch(inters, 11), Is.EqualTo(7));
+            Assert.That(BinarySearch(inters, 8), Is.EqualTo(-1));
+            Assert.That(BinarySearch(inters, -2), Is.EqualTo(-1));
+            Assert.That(BinarySearch(inters, 1), Is.EqualTo(-1));
+            Assert.That(BinarySearch(inters, 3), Is.EqualTo(-1));
+
+            inters = new int[] { };
+
+            Assert.That(() => BinarySearch(inters, 0), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(inters, 1), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(inters, 2), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(inters, 3), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(inters, 4), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            inters = null;
+
+            Assert.That(() => BinarySearch(inters, 0), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(inters, 1), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(inters, 2), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(inters, 3), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(inters, 4), Throws.TypeOf<ArgumentNullException>());
+
+            char[] chrs = new char[] { 'A', 'B', 'E', 'F', 'G', 'I', 'K' };
+
+            Assert.That(BinarySearch(chrs, 'A'), Is.EqualTo(0));
+            Assert.That(BinarySearch(chrs, 'B'), Is.EqualTo(1));
+            Assert.That(BinarySearch(chrs, 'E'), Is.EqualTo(2));
+            Assert.That(BinarySearch(chrs, 'F'), Is.EqualTo(3));
+            Assert.That(BinarySearch(chrs, 'G'), Is.EqualTo(4));
+            Assert.That(BinarySearch(chrs, 'I'), Is.EqualTo(5));
+            Assert.That(BinarySearch(chrs, 'K'), Is.EqualTo(6));
+            Assert.That(BinarySearch(chrs, 'C'), Is.EqualTo(-1));
+            Assert.That(BinarySearch(chrs, 'D'), Is.EqualTo(-1));
+            Assert.That(BinarySearch(chrs, 'H'), Is.EqualTo(-1));
+            Assert.That(BinarySearch(chrs, 'J'), Is.EqualTo(-1));
+            Assert.That(BinarySearch(chrs, 'L'), Is.EqualTo(-1));
+
+            chrs = new char[] { };
+
+            Assert.That(() => BinarySearch(chrs, 'A'), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(chrs, 'B'), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(chrs, 'C'), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(chrs, 'D'), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => BinarySearch(chrs, 'E'), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            chrs = null;
+
+            Assert.That(() => BinarySearch(chrs, 'A'), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(chrs, 'B'), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(chrs, 'C'), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(chrs, 'D'), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => BinarySearch(chrs, 'E'), Throws.TypeOf<ArgumentNullException>());
+        }
+
 
     }
 }
