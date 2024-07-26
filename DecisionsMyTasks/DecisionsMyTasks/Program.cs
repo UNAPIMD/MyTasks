@@ -11,6 +11,7 @@ namespace DecisionsMyTasks
         /// </summary>
         public static void Main()
         {
+            Hanoi(3, 1, 2, 3);
         }
     }
 }

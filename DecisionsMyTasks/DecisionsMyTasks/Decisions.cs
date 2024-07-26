@@ -8,6 +8,33 @@ namespace DecisionsMyTasks
     public class Decisions
     {
         /// <summary>
+        /// Задача о ханойский башнях
+        /// </summary>
+        /// <param name="N"></param>
+        /// <param name="start"></param>
+        /// <param name="work"></param>
+        /// <param name="end"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static void Hanoi(int N, int start, int work, int end)
+        {
+            /*
+             * Рассмотрим алгоритм переноса N дисков:
+             * Пусть все диски расположены на start.
+             * (1). Перенесём N-1 диски на work, используя end.
+             * (2). Оставшийся диск переставим с start на end
+             * (3). Переместим N-1 диски с work на end с помощью start
+            */
+
+            if (N < 0) throw new ArgumentOutOfRangeException("N < 0");
+
+            if (N == 0) return;
+
+            Hanoi(N - 1, start, end, work);
+            Console.WriteLine($"{start} >>> {end}");
+            Hanoi(N - 1, work, start, end);
+        }
+
+        /// <summary>
         /// Возвращает самую длинную строку общего префикса среди массива строк
         /// </summary>
         /// <param name="Array"></param>
