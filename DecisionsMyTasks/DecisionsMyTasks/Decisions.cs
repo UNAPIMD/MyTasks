@@ -16,6 +16,25 @@ namespace DecisionsMyTasks
         /// <returns></returns>
         public static int BinarySearch<T>(T[] Array, T Target) where T : IComparable<T>
         {
+            /*
+             * Алгоритм основан на сравнении Target с элементом, стоящим посередине рассматриваемого промежутка отсортированного массива Array, и последовательном изменении границ этого промежутка
+             * Асимптотическая сложность метода равна O(log n)
+            */
+
+            if (Array == null) throw new ArgumentNullException("Array is null");
+            if (Array.Length == 0) throw new ArgumentOutOfRangeException("Array is empty");
+
+            int left = 0; //Левая граница массива
+            int right = Array.Length - 1; //Правая граница массива
+
+            while(left <= right)
+            {
+                int mid = (left + right) / 2;
+
+                if (Array[mid].CompareTo(Target) == 0) return mid;
+                if (Array[mid].CompareTo(Target) < 0) left = mid + 1;
+                else right = mid - 1;
+            }
 
             return -1;
         }
