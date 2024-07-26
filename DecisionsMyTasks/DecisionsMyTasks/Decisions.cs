@@ -7,10 +7,49 @@ namespace DecisionsMyTasks
     /// </summary>
     public class Decisions
     {
-        public static string ZigZagConvert(string s, int numRows)
+        /// <summary>
+        /// Возвращает зигзагообразный формат строки (задача ZigZag Conversion)
+        /// </summary>
+        /// <param name="line"></param>
+        /// <param name="N"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static string ZigZagConvert(string line, int N)
         {
+            /*
+             * Назовём "зигзагообразным циклом" единичный проход по зигзагообразной матрице сверзу вниз и обратно.
+             * Число шагов, совершаемых при зигзагообразном цикле, равняется steps = 2*N-2.
+             * Обозначим i - индекс рассматриваемого символа строки и зададим массив строк матрицы rows размером N
+             * 
+             * Введём характеристику position = i % steps.
+             * Если position < N, то происходит спуск по матрице (rows[position] += line[i]), иначе - подъём (rows[steps - position] += line[i])
+             * 
+            */
 
-            return null;
+            if (line == null) throw new ArgumentNullException("line is null");
+            if (line.Length == 0) throw new ArgumentOutOfRangeException("line is empty");
+            if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
+
+            if (N == 1 || N >= line.Length) return line;
+
+            int steps = 2 * N - 2; //Число шагов зигзагообразного цикла
+            StringBuilder[] rows = new StringBuilder[N]; //Массив строк зигзагообразной матрицы
+
+            for(int i = 0; i < line.Length; i++)
+            {
+                int position = i % steps;
+
+                if (position < N)
+                {
+                    if (rows[position] == null) rows[position] = new StringBuilder();
+
+                    rows[position].Append(line[i]);
+                }
+                else rows[steps - position].Append(line[i]);
+            }
+
+            return rows.Aggregate((x, y) => x.Append(y)).ToString(); //Последовательное сложение всех строк зигзагообразной матрицы
         }
 
         /// <summary>
