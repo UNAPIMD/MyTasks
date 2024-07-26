@@ -1700,5 +1700,52 @@ namespace NUnitTestsDecisions
             for(int i = 0; i > 10; i--) Assert.That(() => IntToRoman(i), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
 
+        [Test]
+        public void TestZigZagConvert()
+        {
+            string line = "PAYPALISHIRING";
+
+            Assert.That(ZigZagConvert(line, 1), Is.EqualTo("PAYPALISHIRING"));
+            Assert.That(ZigZagConvert(line, 2), Is.EqualTo("PYAIHRNAPLSIIG"));
+            Assert.That(ZigZagConvert(line, 3), Is.EqualTo("PAHNAPLSIIGYIR"));
+            Assert.That(ZigZagConvert(line, 4), Is.EqualTo("PINALSIGYAHRPI"));
+            Assert.That(ZigZagConvert(line, 5), Is.EqualTo("PHASIYIRPLIGAN"));
+            Assert.That(ZigZagConvert(line, 6), Is.EqualTo("PRAIIYHNPSGAIL"));
+            Assert.That(ZigZagConvert(line, 7), Is.EqualTo("PNAIGYRPIAHLSI"));
+            Assert.That(ZigZagConvert(line, 8), Is.EqualTo("PAGYNPIARLIIHS"));
+            Assert.That(ZigZagConvert(line, 9), Is.EqualTo("PAYPGANLIIRSIH"));
+            Assert.That(ZigZagConvert(line, 10), Is.EqualTo("PAYPALGINSIHRI"));
+            Assert.That(ZigZagConvert(line, 11), Is.EqualTo("PAYPALISGHNIIR"));
+            Assert.That(ZigZagConvert(line, 12), Is.EqualTo("PAYPALISHIGRNI"));
+            Assert.That(ZigZagConvert(line, 13), Is.EqualTo("PAYPALISHIRIGN"));
+            Assert.That(ZigZagConvert(line, 14), Is.EqualTo("PAYPALISHIRING"));
+            Assert.That(ZigZagConvert(line, 15), Is.EqualTo("PAYPALISHIRING"));
+
+            line = "A";
+
+            Assert.That(ZigZagConvert(line, 1), Is.EqualTo("A"));
+            Assert.That(ZigZagConvert(line, 2), Is.EqualTo("A"));
+            Assert.That(ZigZagConvert(line, 3), Is.EqualTo("A"));
+
+            line = "ABC";
+
+            Assert.That(ZigZagConvert(line, 1), Is.EqualTo("ABC"));
+            Assert.That(ZigZagConvert(line, 2), Is.EqualTo("ACB"));
+            Assert.That(ZigZagConvert(line, 3), Is.EqualTo("ABC"));
+            Assert.That(ZigZagConvert(line, 4), Is.EqualTo("ABC"));
+            Assert.That(ZigZagConvert(line, 5), Is.EqualTo("ABC"));
+
+            line = "ABCDEF";
+
+            Assert.That(ZigZagConvert(line, 1), Is.EqualTo("ABCDEF"));
+            Assert.That(ZigZagConvert(line, 2), Is.EqualTo("ACEBDF"));
+            Assert.That(ZigZagConvert(line, 3), Is.EqualTo("AEBDFC"));
+            Assert.That(ZigZagConvert(line, 4), Is.EqualTo("ABFCED"));
+            Assert.That(ZigZagConvert(line, 5), Is.EqualTo("ABCDFE"));
+            Assert.That(ZigZagConvert(line, 6), Is.EqualTo("ABCDEF"));
+
+            for (int i = 0; i > 10; i--) Assert.That(() => ZigZagConvert(line, i), Throws.TypeOf<ArgumentOutOfRangeException>());
+            for (int i = 1; i <= 10; i++) Assert.That(() => ZigZagConvert(null, i), Throws.TypeOf<ArgumentNullException>());
+        }
     }
 }

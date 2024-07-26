@@ -7,6 +7,18 @@ namespace DecisionsMyTasks
     /// </summary>
     public class Decisions
     {
+        public static string ZigZagConvert(string s, int numRows)
+        {
+
+            return null;
+        }
+
+        /// <summary>
+        /// Переводит число из десятичной системы счисления в римскую
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static string IntToRoman(int value)
         {
             /*
