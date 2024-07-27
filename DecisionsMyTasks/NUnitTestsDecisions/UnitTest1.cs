@@ -1747,5 +1747,27 @@ namespace NUnitTestsDecisions
             for (int i = 0; i > 10; i--) Assert.That(() => ZigZagConvert(line, i), Throws.TypeOf<ArgumentOutOfRangeException>());
             for (int i = 1; i <= 10; i++) Assert.That(() => ZigZagConvert(null, i), Throws.TypeOf<ArgumentNullException>());
         }
+
+        /// <summary>
+        /// Тестирование LongestPalindrome()
+        /// </summary>
+        [Test]
+        public void TestLongestPalindrome()
+        {
+            Assert.That(LongestPalindrome("level"), Is.EqualTo("level"));
+            Assert.That(LongestPalindrome("hardlevel"), Is.EqualTo("level"));
+            Assert.That(LongestPalindrome("leveleasy"), Is.EqualTo("level"));
+            Assert.That(LongestPalindrome("pop"), Is.EqualTo("pop"));
+            Assert.That(LongestPalindrome("noone"), Is.EqualTo("noon"));
+            Assert.That(LongestPalindrome("peek"), Is.EqualTo("ee"));
+            Assert.That(LongestPalindrome("baobab"), Is.EqualTo("bab"));
+            Assert.That(LongestPalindrome("babad"), Is.EqualTo("bab"));
+            Assert.That(LongestPalindrome("abccbe"), Is.EqualTo("bccb"));
+            Assert.That(LongestPalindrome("a"), Is.EqualTo("a"));
+            Assert.That(LongestPalindrome("ac"), Is.EqualTo("a"));
+
+            Assert.That(() => LongestPalindrome(null), Throws.TypeOf<ArgumentNullException>());
+            Assert.That(() => LongestPalindrome(""), Throws.TypeOf<ArgumentOutOfRangeException>());
+        }
     }
 }

@@ -7,6 +7,12 @@ namespace DecisionsMyTasks
     /// </summary>
     public class Decisions
     {
+        public static string LongestPalindrome(string line)
+        {
+
+            return null;
+        }
+
         /// <summary>
         /// Возвращает зигзагообразный формат строки (задача ZigZag Conversion)
         /// </summary>
