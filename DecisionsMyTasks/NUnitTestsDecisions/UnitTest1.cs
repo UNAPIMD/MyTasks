@@ -1763,6 +1763,8 @@ namespace NUnitTestsDecisions
             Assert.That(LongestPalindrome("baobab"), Is.EqualTo("bab"));
             Assert.That(LongestPalindrome("babad"), Is.EqualTo("bab"));
             Assert.That(LongestPalindrome("abccbe"), Is.EqualTo("bccb"));
+            Assert.That(LongestPalindrome("goobye"), Is.EqualTo("oo"));
+            Assert.That(LongestPalindrome("hello"), Is.EqualTo("ll"));
             Assert.That(LongestPalindrome("a"), Is.EqualTo("a"));
             Assert.That(LongestPalindrome("ac"), Is.EqualTo("a"));
 

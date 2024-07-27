@@ -9,8 +9,49 @@ namespace DecisionsMyTasks
     {
         public static string LongestPalindrome(string line)
         {
+            /*
+             * Пройдём циклом по всем символам заданной строки.
+             * На каждом шаге цикла будем запускать вспомогательный метод, ищущий палиндром по следующем алгоритму:
+             * (1). На вход метода подаём значения left и right - левой и правой границы предполагаемого палиндрома;
+             * (2). Пока эти индексы не вышли за пределы слова или символы на этих позициях не окажутся различными, будем постепенно уменьшать left и увеличивать right;
+             * (3). Возвращаем срез слова в границах от left+1 до right невключительно.
+             * 
+             * Асимптотическая сложность алгоритма приблизительно O(n^2), где n - длина входного слова
+            */
 
-            return null;
+            if (line == null) throw new ArgumentNullException("line is null");
+            if (line.Length == 0) throw new ArgumentOutOfRangeException("line is empty");
+            
+            if (line.Length == 1) return line;
+
+            string palindrome = "";
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                string step = LongestPalindromeHelp(i, i);
+
+                if (step.Length > palindrome.Length) palindrome = step;
+
+                step = LongestPalindromeHelp(i, i+1);
+
+                if (step.Length > palindrome.Length) palindrome = step;
+            }
+
+            return palindrome;
+
+            string LongestPalindromeHelp(int left, int right)
+            {
+                while(left >= 0 && right < line.Length)
+                {
+                    if (!line[left].Equals(line[right])) break;
+
+                    left--;
+                    right++;
+                }
+
+                //Возможно вспомогательный метод можно реализовать через рекурсию, или срезы (неэффективно), или StringBuilder
+                return line[(left + 1)..right];
+            }
         }
 
         /// <summary>

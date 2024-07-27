@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NUnitTestsDecisions")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17cff946fa4f5fda1bcf957a3d2001f09d291c00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efaebda545c223d94837ed54582af7f90109436b")]
 [assembly: System.Reflection.AssemblyProductAttribute("NUnitTestsDecisions")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NUnitTestsDecisions")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
