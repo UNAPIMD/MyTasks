@@ -1837,5 +1837,72 @@ namespace NUnitTestsDecisions
 
             for (int i = -1; i > -20; i--) Assert.That(() => MySqrt(i), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
+
+        [Test]
+        public void TestShipWithinDays()
+        {
+            int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            Assert.AreEqual(ShipWithinDays(arr, 1), 55);
+            Assert.AreEqual(ShipWithinDays(arr, 2), 28);
+            Assert.AreEqual(ShipWithinDays(arr, 3), 21);
+            Assert.AreEqual(ShipWithinDays(arr, 4), 17);
+            Assert.AreEqual(ShipWithinDays(arr, 5), 15);
+            Assert.AreEqual(ShipWithinDays(arr, 6), 11);
+            Assert.AreEqual(ShipWithinDays(arr, 7), 10);
+            Assert.AreEqual(ShipWithinDays(arr, 8), 10);
+            Assert.AreEqual(ShipWithinDays(arr, 9), 10);
+            Assert.AreEqual(ShipWithinDays(arr, 10), 10);
+
+            arr = new int[] { 1, 2, 3, 1, 1 };
+
+            Assert.AreEqual(ShipWithinDays(arr, 1), 8);
+            Assert.AreEqual(ShipWithinDays(arr, 2), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 3), 3);
+            Assert.AreEqual(ShipWithinDays(arr, 4), 3);
+            Assert.AreEqual(ShipWithinDays(arr, 5), 3);
+            Assert.AreEqual(ShipWithinDays(arr, 6), 3);
+            Assert.AreEqual(ShipWithinDays(arr, 7), 3);
+            Assert.AreEqual(ShipWithinDays(arr, 8), 3);
+            Assert.AreEqual(ShipWithinDays(arr, 9), 3);
+            Assert.AreEqual(ShipWithinDays(arr, 10), 3);
+
+            arr = new int[] { 5, 2, 1, 1, 4 };
+
+            Assert.AreEqual(ShipWithinDays(arr, 1), 13);
+            Assert.AreEqual(ShipWithinDays(arr, 2), 7);
+            Assert.AreEqual(ShipWithinDays(arr, 3), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 4), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 5), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 6), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 7), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 8), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 9), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 10), 5);
+
+            arr = new int[] { 3, 2, 2, 4, 1, 4 };
+
+            Assert.AreEqual(ShipWithinDays(arr, 1), 16);
+            Assert.AreEqual(ShipWithinDays(arr, 2), 9);
+            Assert.AreEqual(ShipWithinDays(arr, 3), 6);
+            Assert.AreEqual(ShipWithinDays(arr, 4), 5);
+            Assert.AreEqual(ShipWithinDays(arr, 5), 4);
+            Assert.AreEqual(ShipWithinDays(arr, 6), 4);
+            Assert.AreEqual(ShipWithinDays(arr, 7), 4);
+            Assert.AreEqual(ShipWithinDays(arr, 8), 4);
+            Assert.AreEqual(ShipWithinDays(arr, 9), 4);
+            Assert.AreEqual(ShipWithinDays(arr, 10), 4);
+
+            for (int i = 0; i >= -10; i--) Assert.That(() => ShipWithinDays(arr, i), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            arr = new int[] { };
+
+            for (int i = 1; i <= 10; i++) Assert.That(() => ShipWithinDays(arr, i), Throws.TypeOf<ArgumentOutOfRangeException>());
+
+            arr = null;
+
+            for (int i = 1; i <= 10; i++) Assert.That(() => ShipWithinDays(arr, i), Throws.TypeOf<ArgumentNullException>());
+
+        }
     }
 }

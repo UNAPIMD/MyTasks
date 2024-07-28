@@ -11,7 +11,6 @@ namespace DecisionsMyTasks
         /// </summary>
         public static void Main()
         {
-            Console.WriteLine((int)(2.7));
         }
     }
 }

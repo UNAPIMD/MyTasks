@@ -8,7 +8,18 @@ namespace DecisionsMyTasks
     public class Decisions
     {
         static double eps = 1e-8;
+        public static int ShipWithinDays(int[] weights, int days)
+        {
 
+            return -1;
+        }
+
+        /// <summary>
+        /// Возвращает квадратный корень из value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static double MySqrt(double value)
         {
 
