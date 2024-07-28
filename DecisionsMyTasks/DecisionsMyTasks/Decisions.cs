@@ -16,7 +16,9 @@ namespace DecisionsMyTasks
         {
             //Из условий следует, что ClimbStairs(n) = ClimbStairs(n-1) + ClimbStairs(n-2), так как за один шаг можно подняться на одну или две ступеньки. Имеем дело с последовательностью Фибоначчи
 
-            return -1;
+            if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
+
+            return Fibonachi(N+1);
         }
 
         public static string LongestPalindrome(string line)
