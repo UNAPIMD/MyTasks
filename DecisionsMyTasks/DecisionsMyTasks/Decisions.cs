@@ -10,8 +10,53 @@ namespace DecisionsMyTasks
         static double eps = 1e-8;
         public static int ShipWithinDays(int[] weights, int days)
         {
+            /*
+             * Обратим внимание на то, что перевозка товаров осуществляется в порядке их доставкии контейнером
+             * Для решения задачи используем бинарный поиск, где left равен максимальному весу одного товара, а right - весу всех товаров.
+             * Заметим, что если все товары можно перевести за 1 день, то перевозка возможна и за days дней)
+             * 
+             * Асимптотическая сложность алгоритма O(N log S), где S - сумма всех элементов массива, а N - их число
+            */
 
-            return -1;
+            if (weights == null) throw new ArgumentNullException("weights is null");
+            if (weights.Length == 0) throw new ArgumentOutOfRangeException("weights is empty");
+            if (days <= 0) throw new ArgumentOutOfRangeException("days <= 0");
+
+            int left = weights.MaxBy(x => x);
+            int right = weights.Aggregate((x, y) => x + y);
+            int answer = -1;
+
+            while (left <= right)
+            {
+                int mid = (left + right) / 2;
+                if (!ShipWithinDaysHelp(mid, days)) left = mid + 1;
+                else
+                {
+                    answer = mid;
+                    right = mid - 1;
+                }
+            }
+
+            return answer;
+
+            bool ShipWithinDaysHelp(int capacity, int time)
+            {
+                int W = 0; //Вес на текущем дне
+
+                for (int i = 0; i < weights.Length && time != 0; i++)
+                {
+                    if (weights[i] > capacity) return false;
+                    if (weights[i] + W <= capacity) W += weights[i];
+                    else if (time == 1) return false;
+                    else
+                    {
+                        time--;
+                        W = weights[i];
+                    }
+                }
+
+                return true;
+            }
         }
 
         /// <summary>
