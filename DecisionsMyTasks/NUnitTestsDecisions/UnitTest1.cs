@@ -1771,5 +1771,32 @@ namespace NUnitTestsDecisions
             Assert.That(() => LongestPalindrome(null), Throws.TypeOf<ArgumentNullException>());
             Assert.That(() => LongestPalindrome(""), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
+
+        [Test]
+        public void TestClimbStairs()
+        {
+            Assert.That(ClimbStairs(1), Is.EqualTo(1));
+            Assert.That(ClimbStairs(2), Is.EqualTo(2));
+            Assert.That(ClimbStairs(3), Is.EqualTo(3));
+            Assert.That(ClimbStairs(4), Is.EqualTo(5));
+            Assert.That(ClimbStairs(5), Is.EqualTo(8));
+            Assert.That(ClimbStairs(6), Is.EqualTo(13));
+            Assert.That(ClimbStairs(7), Is.EqualTo(21));
+            Assert.That(ClimbStairs(8), Is.EqualTo(34));
+            Assert.That(ClimbStairs(9), Is.EqualTo(55));
+            Assert.That(ClimbStairs(10), Is.EqualTo(89));
+            Assert.That(ClimbStairs(11), Is.EqualTo(144));
+            Assert.That(ClimbStairs(12), Is.EqualTo(233));
+            Assert.That(ClimbStairs(13), Is.EqualTo(377));
+            Assert.That(ClimbStairs(14), Is.EqualTo(610));
+            Assert.That(ClimbStairs(15), Is.EqualTo(987));
+            Assert.That(ClimbStairs(16), Is.EqualTo(1597));
+            Assert.That(ClimbStairs(17), Is.EqualTo(2584));
+            Assert.That(ClimbStairs(18), Is.EqualTo(4181));
+            Assert.That(ClimbStairs(19), Is.EqualTo(6765));
+            Assert.That(ClimbStairs(20), Is.EqualTo(10946));
+
+            for (int i = 0; i > -10; i--) Assert.That(() => ClimbStairs(i), Throws.TypeOf<ArgumentOutOfRangeException>());
+        }
     }
 }

@@ -7,6 +7,18 @@ namespace DecisionsMyTasks
     /// </summary>
     public class Decisions
     {
+        /// <summary>
+        /// Каждый раз можно подняться либо на 1, либо на 2 ступеньки. Сколькими различными способами можно подняться на N-ую ступеньку?
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static int ClimbStairs(int N)
+        {
+            //Из условий следует, что ClimbStairs(n) = ClimbStairs(n-1) + ClimbStairs(n-2), так как за один шаг можно подняться на одну или две ступеньки. Имеем дело с последовательностью Фибоначчи
+
+            return -1;
+        }
+
         public static string LongestPalindrome(string line)
         {
             /*
