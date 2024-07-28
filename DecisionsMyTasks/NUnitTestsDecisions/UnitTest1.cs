@@ -7,6 +7,8 @@ namespace NUnitTestsDecisions
     /// </summary>
     public class TestsMyTasks
     {
+        static double eps = 1e-8; //Погрешность
+
         [SetUp]
         public void Setup()
         {
@@ -159,7 +161,6 @@ namespace NUnitTestsDecisions
         [Test]
         public void TestMyPow()
         {
-            double eps = 1e-8; //Погрешность
 
             Assert.AreEqual(MyPow(2, 0), 1, eps);
             Assert.AreEqual(MyPow(2, 1), 2, eps);
@@ -1797,6 +1798,42 @@ namespace NUnitTestsDecisions
             Assert.That(ClimbStairs(20), Is.EqualTo(10946));
 
             for (int i = 0; i > -10; i--) Assert.That(() => ClimbStairs(i), Throws.TypeOf<ArgumentOutOfRangeException>());
+        }
+
+        [Test]
+        public void TestMySqrt()
+        {
+            Assert.AreEqual(MySqrt(2), 1.41421356237468, eps);
+            Assert.AreEqual(MySqrt(3), 1.73205081001472, eps);
+            Assert.AreEqual(MySqrt(4), 2.0, eps);
+            Assert.AreEqual(MySqrt(5), 2.23606797749997, eps);
+            Assert.AreEqual(MySqrt(6), 2.44948974278755, eps);
+            Assert.AreEqual(MySqrt(7), 2.64575131111136, eps);
+            Assert.AreEqual(MySqrt(8), 2.82842712504986, eps);
+            Assert.AreEqual(MySqrt(9), 3.0, eps);
+            Assert.AreEqual(MySqrt(10), 3.1622776601683, eps);
+            Assert.AreEqual(MySqrt(13), 3.6055512754639, eps);
+            Assert.AreEqual(MySqrt(18), 4.2426406871196, eps);
+            Assert.AreEqual(MySqrt(22), 4.6904157598320, eps);
+            Assert.AreEqual(MySqrt(36), 6.0, eps);
+            Assert.AreEqual(MySqrt(39), 6.2449979983983, eps);
+            Assert.AreEqual(MySqrt(44), 6.6332495807107, eps);
+            Assert.AreEqual(MySqrt(49), 7.0, eps);
+            Assert.AreEqual(MySqrt(51), 7.1414284285428, eps);
+            Assert.AreEqual(MySqrt(57), 7.5498344352707, eps);
+            Assert.AreEqual(MySqrt(69), 8.3066238629186, eps);
+            Assert.AreEqual(MySqrt(77), 8.7749643873954, eps);
+            Assert.AreEqual(MySqrt(80), 8.9442719100050, eps);
+            Assert.AreEqual(MySqrt(85), 9.2195444573073, eps);
+            Assert.AreEqual(MySqrt(93), 9.6436507610448, eps);
+            Assert.AreEqual(MySqrt(100), 10.0, eps);
+            Assert.AreEqual(MySqrt(101), 10.04987562128, eps);
+            Assert.AreEqual(MySqrt(121), 11.0, eps);
+            Assert.AreEqual(MySqrt(1089), 33.000000000000, eps);
+            Assert.AreEqual(MySqrt(2034), 45.099889135118, eps);
+            Assert.AreEqual(MySqrt(5005), 70.746024623333, eps);
+
+            for (int i = -1; i > -20; i--) Assert.That(() => MySqrt(i), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
     }
 }

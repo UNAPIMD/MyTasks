@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Transactions;
 
 namespace DecisionsMyTasks
 {
@@ -7,6 +8,14 @@ namespace DecisionsMyTasks
     /// </summary>
     public class Decisions
     {
+        static double eps = 1e-8;
+
+        public static double MySqrt(double value)
+        {
+
+            return -1;
+        }
+
         /// <summary>
         /// Каждый раз можно подняться либо на 1, либо на 2 ступеньки. Сколькими различными способами можно подняться на N-ую ступеньку?
         /// </summary>

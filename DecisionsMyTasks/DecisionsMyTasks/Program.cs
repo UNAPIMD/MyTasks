@@ -11,7 +11,7 @@ namespace DecisionsMyTasks
         /// </summary>
         public static void Main()
         {
-            Console.WriteLine(Fibonachi(3));
+            Console.WriteLine((int)(2.7));
         }
     }
 }
