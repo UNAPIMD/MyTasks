@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using System.Transactions;
 
 namespace DecisionsMyTasks
 {
@@ -13,7 +12,18 @@ namespace DecisionsMyTasks
         public static double MySqrt(double value)
         {
 
-            return -1;
+            //Используется определение квадратного неотрицательного числа через числовую последовательность - итерационная формула Герона
+
+            if (value < 0) throw new ArgumentOutOfRangeException("value < 0");
+
+            if (value == 0) return 0;
+            if (value == 1) return 1;
+
+            double result = value;
+
+            while ((result - value / result) > eps) result = (result + value / result) * 0.5;
+
+            return result;
         }
 
         /// <summary>
@@ -27,7 +37,7 @@ namespace DecisionsMyTasks
 
             if (N <= 0) throw new ArgumentOutOfRangeException("N <= 0");
 
-            return Fibonachi(N+1);
+            return Fibonachi(N + 1);
         }
 
         public static string LongestPalindrome(string line)
@@ -44,7 +54,7 @@ namespace DecisionsMyTasks
 
             if (line == null) throw new ArgumentNullException("line is null");
             if (line.Length == 0) throw new ArgumentOutOfRangeException("line is empty");
-            
+
             if (line.Length == 1) return line;
 
             string palindrome = "";
@@ -55,7 +65,7 @@ namespace DecisionsMyTasks
 
                 if (step.Length > palindrome.Length) palindrome = step;
 
-                step = LongestPalindromeHelp(i, i+1);
+                step = LongestPalindromeHelp(i, i + 1);
 
                 if (step.Length > palindrome.Length) palindrome = step;
             }
@@ -64,7 +74,7 @@ namespace DecisionsMyTasks
 
             string LongestPalindromeHelp(int left, int right)
             {
-                while(left >= 0 && right < line.Length)
+                while (left >= 0 && right < line.Length)
                 {
                     if (!line[left].Equals(line[right])) break;
 
@@ -106,7 +116,7 @@ namespace DecisionsMyTasks
             int steps = 2 * N - 2; //Число шагов зигзагообразного цикла
             StringBuilder[] rows = new StringBuilder[N]; //Массив строк зигзагообразной матрицы
 
-            for(int i = 0; i < line.Length; i++)
+            for (int i = 0; i < line.Length; i++)
             {
                 int position = i % steps;
 
@@ -171,8 +181,8 @@ namespace DecisionsMyTasks
 
             StringBuilder line = new StringBuilder();
 
-            foreach(var x in Alphabet.Keys)
-                while(value >= x)
+            foreach (var x in Alphabet.Keys)
+                while (value >= x)
                 {
                     value -= x;
                     line.Append(Alphabet[x]);
@@ -202,7 +212,7 @@ namespace DecisionsMyTasks
             int left = 0; //Левая граница массива
             int right = Array.Length - 1; //Правая граница массива
 
-            while(left <= right)
+            while (left <= right)
             {
                 int mid = (left + right) / 2;
 

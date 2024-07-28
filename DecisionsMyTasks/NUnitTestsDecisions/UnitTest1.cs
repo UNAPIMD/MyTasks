@@ -1803,6 +1803,8 @@ namespace NUnitTestsDecisions
         [Test]
         public void TestMySqrt()
         {
+            Assert.AreEqual(MySqrt(0), 0, eps);
+            Assert.AreEqual(MySqrt(1), 1.0, eps);
             Assert.AreEqual(MySqrt(2), 1.41421356237468, eps);
             Assert.AreEqual(MySqrt(3), 1.73205081001472, eps);
             Assert.AreEqual(MySqrt(4), 2.0, eps);
